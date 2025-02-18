@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff7b81455b558b4479db75968dc57b7a
+guid: d2ba5d7bd867953449f51b1aff3487ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1177616343073683117
-    second: mc_ch_0
+      213: -9142491690305367167
+    second: elara_serious_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc_ch_0
+      name: elara_serious_0
       rect:
         serializedVersion: 2
-        x: 213
+        x: 218
         y: 0
-        width: 1476
-        height: 2466
+        width: 1526
+        height: 2487
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 359066ddc2448afe0800000000000000
-      internalID: -1177616343073683117
+      spriteID: 18353652f385f1180800000000000000
+      internalID: -9142491690305367167
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mc_ch_0: -1177616343073683117
+      elara_serious_0: -9142491690305367167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
