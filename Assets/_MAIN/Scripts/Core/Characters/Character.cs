@@ -14,8 +14,9 @@ namespace CHARACTERS
         public CharacterConfigData config;
         public Animator animator;
 
-        protected CharacterManager manager => CharacterManager.instance;
+        protected CharacterManager characterManager => CharacterManager.instance;
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
+        public int priority {  get; protected set; }
 
         //Coroutines
         protected Coroutine co_revealing, co_hiding;
@@ -31,8 +32,8 @@ namespace CHARACTERS
 
             if (prefab != null)
             {
-                GameObject ob = Object.Instantiate(prefab, manager.characterPanel);
-                ob.name = manager.FormatCharacterPath(manager.characterPrefabNameFormat, name);
+                GameObject ob = Object.Instantiate(prefab, characterManager.characterPanel);
+                ob.name = characterManager.FormatCharacterPath(characterManager.characterPrefabNameFormat, name);
                 ob.SetActive(true);
                 root = ob.GetComponent<RectTransform>();  
                 animator = root.GetComponentInChildren<Animator>();
@@ -61,9 +62,9 @@ namespace CHARACTERS
                 return co_revealing;
 
             if (isHiding)
-                manager.StopCoroutine(co_hiding);
+                characterManager.StopCoroutine(co_hiding);
 
-            co_revealing = manager.StartCoroutine(ShowingOrHiding(true));
+            co_revealing = characterManager.StartCoroutine(ShowingOrHiding(true));
 
             return co_revealing;
         }
@@ -74,9 +75,9 @@ namespace CHARACTERS
                 return co_hiding;
 
             if (isRevealing)
-                manager.StopCoroutine(co_revealing);
+                characterManager.StopCoroutine(co_revealing);
 
-            co_hiding = manager.StartCoroutine(ShowingOrHiding(false));
+            co_hiding = characterManager.StartCoroutine(ShowingOrHiding(false));
 
             return co_hiding;
         }
@@ -85,6 +86,14 @@ namespace CHARACTERS
         {
             Debug.Log("Show/Hide cannot be called from a base character type.");
             yield return null;
+        }
+
+        public void SetPriority(int priority, bool autoSortCharacterOnUI = true)
+        { 
+            this.priority = priority;
+
+            if (autoSortCharacterOnUI)
+                characterManager.SortCharacters();
         }
 
         public enum CharacterType

@@ -21,35 +21,27 @@ namespace TESTING
 
         IEnumerator Test()
         {
-            Character_Sprite MC = CharacterManager.instance.CreateCharacter("MC") as Character_Sprite;
+            Character_Sprite MC = CreateCharacter("MC") as Character_Sprite;
 
-            Character_Sprite Elara = CharacterManager.instance.CreateCharacter("Elara") as Character_Sprite;
+            Character_Sprite Elara = CreateCharacter("Elara") as Character_Sprite;
 
             yield return MC.Show();
 
-            MC.Say("MC\"Hello!\"");
+            yield return Elara.Show();
 
-            yield return new WaitForSeconds(2);
-
-            Sprite bodySprite = MC.GetSprite("mc_concerned");
-            yield return MC.TransitionSprite(bodySprite, 0);
-
-            MC.Say("MC\"Are you okay?\"");
-            yield return new WaitForSeconds(1);
-
-            yield return MC.Hide();
-
-            Elara.Show();
-
-            bodySprite = Elara.GetSprite("elara_ch");
-            Elara.TransitionSprite(bodySprite, 0);
+            Elara.SetPriority(1);
 
             yield return new WaitForSeconds(1);
 
-            Elara.Say("Elara\"I-I'm fine. {wa 1} No need to worry.\"");
+            CharacterManager.instance.SortCharacters(new string[] { "MC" });
 
-            bodySprite = Elara.GetSprite("elara_flustered");
-            Elara.TransitionSprite(bodySprite, 0);
+            yield return new WaitForSeconds(1);
+
+            CharacterManager.instance.SortCharacters();
+
+            yield return new WaitForSeconds(1);
+
+            CharacterManager.instance.SortCharacters(new string[] { "Elara" });
 
             yield return null;
         }
