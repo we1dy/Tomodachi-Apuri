@@ -20,24 +20,31 @@ MonoBehaviour:
     dialogueColor: {r: 1, g: 0.8726415, b: 0.9807565, a: 1}
     nameFont: {fileID: 11400000, guid: 3cf59813c3f9e574faf0bb482505a28f, type: 2}
     dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
-  - name: Mob
-    alias: Mo
-    characterType: 0
-    nameColor: {r: 0.77683634, g: 0.4669811, b: 1, a: 1}
-    dialogueColor: {r: 0.9098039, g: 0.8509804, b: 0.94509804, a: 1}
-    nameFont: {fileID: 11400000, guid: 3cf59813c3f9e574faf0bb482505a28f, type: 2}
-    dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
-  - name: Reigen
-    alias: Rei
-    characterType: 0
-    nameColor: {r: 0.9716981, g: 0.7586574, b: 0.45376468, a: 1}
-    dialogueColor: {r: 1, g: 0.92142856, b: 0.8443396, a: 1}
-    nameFont: {fileID: 11400000, guid: 3cf59813c3f9e574faf0bb482505a28f, type: 2}
-    dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
   - name: MC
     alias: MC
     characterType: 1
-    nameColor: {r: 0.8836958, g: 0.7783019, b: 1, a: 1}
+    nameColor: {r: 0.85349256, g: 0.7471075, b: 0.9716981, a: 1}
     dialogueColor: {r: 0.9382342, g: 0.8924439, b: 0.990566, a: 1}
+    nameFont: {fileID: 11400000, guid: 3cf59813c3f9e574faf0bb482505a28f, type: 2}
+    dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
+  - name: Asher
+    alias: Asher
+    characterType: 1
+    nameColor: {r: 0.9339623, g: 0.75457263, b: 0.2775454, a: 1}
+    dialogueColor: {r: 1, g: 0.9148585, b: 0.7311321, a: 1}
+    nameFont: {fileID: 11400000, guid: 3cf59813c3f9e574faf0bb482505a28f, type: 2}
+    dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
+  - name: Miralyn
+    alias: Miralyn
+    characterType: 1
+    nameColor: {r: 0.5567803, g: 0.9433962, b: 0.5206479, a: 1}
+    dialogueColor: {r: 0.8153573, g: 0.9622642, b: 0.8033998, a: 1}
+    nameFont: {fileID: 11400000, guid: 3cf59813c3f9e574faf0bb482505a28f, type: 2}
+    dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
+  - name: Oliver
+    alias: Oliver
+    characterType: 1
+    nameColor: {r: 0.56924176, g: 0.81787235, b: 0.9811321, a: 1}
+    dialogueColor: {r: 0.8033998, g: 0.9002314, b: 0.9622642, a: 1}
     nameFont: {fileID: 11400000, guid: 3cf59813c3f9e574faf0bb482505a28f, type: 2}
     dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}

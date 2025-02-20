@@ -14,9 +14,15 @@ namespace CHARACTERS
         public List<CharacterSpriteLayer> layers = new List<CharacterSpriteLayer>();
 
         private string artAssetsDirectory = "";
+
+        public override bool isVisible
+        { 
+            get { return isRevealing || rootCG.alpha == 1; }
+            set {rootCG.alpha = value ? 1 : 0;}
+        }
         public Character_Sprite(string name, CharacterConfigData config, GameObject prefab, string rootAssetsFolder) : base(name, config, prefab)
         {
-            rootCG.alpha = 0;
+            rootCG.alpha = ENABLE_ON_START ? 1 : 0;
             artAssetsDirectory = rootAssetsFolder + "/Images";
             GetLayers();
             Debug.Log($"Created Sprite Character: '{name}'");

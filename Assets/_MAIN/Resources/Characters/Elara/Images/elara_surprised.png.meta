@@ -5,6 +5,18 @@ TextureImporter:
   - first:
       213: -950631755255227648
     second: elara_surprised_0
+  - first:
+      213: 4110861049603198337
+    second: elara_surprised_1
+  - first:
+      213: 6961606606481147342
+    second: elara_surprised_2
+  - first:
+      213: -1304018352806818700
+    second: elara_surprised_3
+  - first:
+      213: -2032240097812037995
+    second: elara_surprised_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -129,10 +141,10 @@ TextureImporter:
       name: elara_surprised_0
       rect:
         serializedVersion: 2
-        x: 218
-        y: 0
-        width: 1526
-        height: 2487
+        x: 784
+        y: 1887
+        width: 501
+        height: 436
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,11 +159,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: elara_surprised_1
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 2237
+        width: 65
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18d86962856bc0930800000000000000
+      internalID: 4110861049603198337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elara_surprised_2
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 2220
+        width: 62
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5425d03589c9060800000000000000
+      internalID: 6961606606481147342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elara_surprised_3
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 2169
+        width: 52
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c0c54973237ede0800000000000000
+      internalID: -1304018352806818700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elara_surprised_4
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 2160
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ebb97f5680cc3e0800000000000000
+      internalID: -2032240097812037995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +262,10 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       elara_surprised_0: -950631755255227648
+      elara_surprised_1: 4110861049603198337
+      elara_surprised_2: 6961606606481147342
+      elara_surprised_3: -1304018352806818700
+      elara_surprised_4: -2032240097812037995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
