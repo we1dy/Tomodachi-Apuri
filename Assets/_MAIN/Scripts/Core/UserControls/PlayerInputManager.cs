@@ -20,8 +20,8 @@ namespace DIALOGUE
                 PromptAdvance();
 
             //Touch input(for mobile devices)
-            //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-            //    PromptAdvance();
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+                PromptAdvance();
         }
 
         public void PromptAdvance()

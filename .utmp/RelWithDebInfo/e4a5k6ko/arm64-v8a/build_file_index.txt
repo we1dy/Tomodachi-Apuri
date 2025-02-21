@@ -1,0 +1,3 @@
+W:\Unity stuffz\My project\Tomodachi Apuri\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+W:\Unity stuffz\My project\Tomodachi Apuri\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\CMakeLists.txt
+W:\Unity stuffz\My project\Tomodachi Apuri\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
