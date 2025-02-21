@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CHARACTERS;
 using COMMANDS;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
@@ -73,13 +74,35 @@ namespace DIALOGUE
         {
             // show or hide speaker name if there is one present
             if (line.hasSpeaker)
-                dialogueSystem.ShowSpeakerName(line.speakerData.displayName);
+                HandleSpeakerLogic(line.speakerData);
 
             //Build dialogue
             yield return BuildLineSegments(line.dialogueData);
+        }
 
-            //wait for user input
-            //yield return WaitForUserInput();
+        private void HandleSpeakerLogic(DL_SPEAKER_DATA speakerData)
+        {
+            bool characterMustBeCreated = (speakerData.makeCharacterEnter || speakerData.isCastingPosition || speakerData.isCastingExpressions);        
+
+            Character character = CharacterManager.instance.GetCharacter(speakerData.name, createIfDoesNotExist: characterMustBeCreated);
+
+            if (speakerData.makeCharacterEnter && (!character.isVisible && !character.isRevealing))
+                character.Show();
+
+            //Add character name to the UI
+            dialogueSystem.ShowSpeakerName(speakerData.displayName);
+
+            //Now cutomizze the dialogue for this characterr - if applicable
+            DialogueSystem.instance.ApplySpeakerDataToDialogueContainer(speakerData.name);
+
+            //if (speakerData.isCastingPosition)
+            //    character.MoveToPosition(speakerData.castPosition);
+
+            if (speakerData.isCastingExpressions)
+            {
+                foreach(var ce in speakerData.CastExpressions)
+                    character.OnReceiveCastingExpression(ce.layer, ce.expression);
+            }
         }
 
         IEnumerator Line_RunCommands(DIALOGUE_LINE line)
@@ -88,7 +111,7 @@ namespace DIALOGUE
 
             foreach(DL_COMMAND_DATA.Command command in commands)
             {
-                if (command.waitForCompletion)
+                if (command.waitForCompletion || command.name == "wait")
                     yield return CommandManager.instance.Execute(command.name, command.arguments);
                 else
                     CommandManager.instance.Execute(command.name, command.arguments);

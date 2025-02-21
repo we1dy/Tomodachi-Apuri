@@ -1,0 +1,17 @@
+wait(1), CreateCharacter(MC), CreateCharacter(Elara), CreateCharacter (Oliver)
+
+Show (MC Elara Oliver -immediate false)
+
+Narrator "Showing my beloved babies!!"
+
+Hide(MC -e true -i true), Hide(Oliver -e true -i true)
+
+enter Elara [0:elara_body,1:elara_flustered] "Wh-{wa 0.5}who are you calling babies!?"
+
+Hide(Elara -e true -i true), Hide(Oliver -e true -i true)
+
+enter MC as Haruhi at 1 [0:mc_body,1:mc_curious] "You know we're not real right??"
+
+Hide(MC -e true -i true), Hide(Elara -e true -i true)
+
+enter Oliver "Wahhhhhhhh. . .{wa 1}Today's such a noisy day."

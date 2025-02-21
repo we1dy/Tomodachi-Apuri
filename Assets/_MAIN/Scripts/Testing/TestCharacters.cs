@@ -13,9 +13,6 @@ namespace TESTING
         private Character CreateCharacter(string name) => CharacterManager.instance.CreateCharacter(name);
         void Start()
         {
-            //
-            //Character Mob = CharacterManager.instance.CreateCharacter("Mob");
-            //Character Reigen = CharacterManager.instance.CreateCharacter("Reigen");
             StartCoroutine(Test());
         }
 
