@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CHARACTERS;
 using UnityEngine.UI;
+using System.Linq;
 
 namespace CHARACTERS
 {
@@ -74,14 +74,14 @@ namespace CHARACTERS
             return spriteLayer.TransitionSprite(sprite, speed);
         }
 
-        public override IEnumerator ShowingOrHiding(bool show)
+        public override IEnumerator ShowingOrHiding(bool show, float speedMultiplier = 1f)
         {
             float targetAlpha = show ? 1f : 0f;
             CanvasGroup self = rootCG;
 
             while(self.alpha != targetAlpha)
             {
-                self.alpha = Mathf.MoveTowards(self.alpha, targetAlpha, 3f * Time.deltaTime);
+                self.alpha = Mathf.MoveTowards(self.alpha, targetAlpha, 3f * Time.deltaTime * speedMultiplier);
                 yield return null;
             }
 
@@ -100,6 +100,51 @@ namespace CHARACTERS
             }
 
             TransitionSprite(sprite, layer);
+        }
+
+        public override void SetColor(Color color)
+        {
+            base.SetColor(color);
+            color = displayColor;
+
+            foreach (CharacterSpriteLayer layer in layers)
+            {
+                layer.StopChangingColor();
+                layer.SetColor(color);
+            }
+        }
+
+        public override IEnumerator ChangingColor(Color color, float speed)
+        {
+            foreach (CharacterSpriteLayer layer in layers)
+                layer.TransitionColor(color, speed);    
+
+            yield return null;
+
+            while (layers.Any(l => l.isChangingColor))
+                yield return null;  
+            
+            co_changingColor = null;
+        }
+
+        public override IEnumerator Highlighting(float speedMultiplier, bool immediate = false)
+        {
+            Color targetColor = displayColor;
+
+            foreach(CharacterSpriteLayer layer in layers)
+            {
+                if (immediate)
+                    layer.SetColor(displayColor);
+                else
+                    layer.TransitionColor(targetColor, speedMultiplier);
+            }
+
+            yield return null;
+
+            while (layers.Any(l => l.isChangingColor))
+                yield return null;
+
+            co_changingColor = null;
         }
     }
 }

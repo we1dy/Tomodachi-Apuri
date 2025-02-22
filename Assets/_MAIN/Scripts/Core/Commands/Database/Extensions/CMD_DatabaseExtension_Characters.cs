@@ -1,9 +1,13 @@
 using System.Collections;
-using System;
 using System.Collections.Generic;
-using CHARACTERS;
-using System.Linq;
 using UnityEngine;
+using System.Reflection;
+using System.Linq;
+using System;
+using UnityEngine.Events;
+using CHARACTERS;
+using Unity.VisualScripting;
+using UnityEditor;
 
 namespace COMMANDS
 {
@@ -22,6 +26,17 @@ namespace COMMANDS
             database.AddCommand("movecharacter", new Func<string[], IEnumerator>(MoveCharacter));
             database.AddCommand("show", new Func<string[], IEnumerator>(ShowAll));
             database.AddCommand("hide", new Func<string[], IEnumerator>(HideAll));
+            database.AddCommand("sort", new Action<string[]>(Sort)); 
+
+
+            //add commands to characters
+            CommandDatabase baseCommands = CommandManager.instance.CreateSubDatabase(CommandManager.DATABASE_CHARACTERS_BASE);
+            baseCommands.AddCommand("move", new Func<string[], IEnumerator>(MoveCharacter));
+            baseCommands.AddCommand("show", new Func<string[], IEnumerator>(Show));
+            baseCommands.AddCommand("hide", new Func<string[], IEnumerator>(Hide));
+            baseCommands.AddCommand("setpriority", new Action<string[]>(SetPriority));
+            baseCommands.AddCommand("highlight", new Func<string[], IEnumerator>(Highlight));
+            baseCommands.AddCommand("unhighlight", new Func<string[], IEnumerator>(Unhighlight));
         }
 
         public static void CreateCharacter(string[] data)
@@ -30,7 +45,7 @@ namespace COMMANDS
             bool enable = false;
             bool immediate = false;
 
-            var parameters = ConvertDataToParameters(data);
+            var parameters = ConvertDataToParameters(data, startingIndex: 0);
 
             parameters.TryGetValue(PARAM_ENABLE, out enable, defaultValue: false);
             parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
@@ -60,7 +75,7 @@ namespace COMMANDS
             bool smooth = false;
             bool immediate = false;
 
-            var parameters = ConvertDataToParameters(data);
+            var parameters = ConvertDataToParameters(data, startingIndex: 0);
 
             //try to get the x axis position
             parameters.TryGetValue(PARAM_XPOS, out x);
@@ -84,13 +99,17 @@ namespace COMMANDS
             //if (immediate)
             //    character.SetPosition(position);
             //else
+            //{
+            //    CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.SetPosition(positions); });
             //    yield return character.MoveToPosition(position, speed, smooth);
+            //}
         }
 
         public static IEnumerator ShowAll(string[] data)
         {
             List<Character> characters = new List<Character>();
             bool immediate = false;
+            float speed = 1f;
 
             foreach (string s in data)
             {
@@ -103,9 +122,10 @@ namespace COMMANDS
                 yield break;
 
             //convert the data array to a parameter container
-            var parameters = ConvertDataToParameters(data);
+            var parameters = ConvertDataToParameters(data, startingIndex: 0);
 
             parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
+            parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 1f);
 
             //call the logic on all the characters
             foreach (Character character in characters)
@@ -118,6 +138,12 @@ namespace COMMANDS
 
             if (!immediate)
             {
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
+                {
+                    foreach (Character character in characters)
+                        character.isVisible = true;
+                });
+
                 while (characters.Any(c => c.isRevealing))
                     yield return null;
             }
@@ -127,6 +153,7 @@ namespace COMMANDS
         {
             List<Character> characters = new List<Character>();
             bool immediate = false;
+            float speed = 1f; 
 
             foreach (string s in data)
             {
@@ -139,9 +166,10 @@ namespace COMMANDS
                 yield break;
 
             //convert the data array to a parameter container
-            var parameters = ConvertDataToParameters(data);
+            var parameters = ConvertDataToParameters(data, startingIndex: 0);
 
             parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: false);
+            parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 1f);
 
             //call the logic on all the characters
             foreach (Character character in characters)
@@ -149,13 +177,136 @@ namespace COMMANDS
                 if (immediate)
                     character.isVisible = false;
                 else
-                    character.Hide();
+                    character.Hide(speed);
             }
 
             if (!immediate)
             {
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() =>
+                {
+                    foreach (Character character in characters)
+                        character.isVisible = false;
+                });
+
                 while (characters.Any(c => c.isHiding))
                     yield return null;
+            }
+        }
+
+        private static void Sort(string[] data)
+        {
+            CharacterManager.instance.SortCharacters(data);
+        }
+
+
+
+        //BASE CHARACTER COMMANDS
+
+        private static IEnumerator Show(string[] data)
+        {
+            Character character = CharacterManager.instance.GetCharacter(data[0]);
+
+            if (character == null)
+                yield break;    
+
+            bool immediate = false;
+            var parameters = ConvertDataToParameters(data,startingIndex: 0);
+
+            parameters.TryGetValue(new string[] { "-i", "immediate" }, out immediate, defaultValue: false);
+
+            if (immediate)
+                character.isVisible = true;
+            else
+            {
+                //a long running process should have a stop action to cancel out the coroutie and run logic that should complete this command
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() => { if (character != null) character.isVisible = true; });
+
+                yield return character.Show();
+            }
+        }
+
+        private static IEnumerator Hide(string[] data)
+        {
+            Character character = CharacterManager.instance.GetCharacter(data[0]);
+
+            if (character == null)
+                yield break;
+
+            bool immediate = false;
+            var parameters = ConvertDataToParameters(data, startingIndex: 0);
+
+            parameters.TryGetValue(new string[] { "-i", "immediate" }, out immediate, defaultValue: false);
+
+            if (immediate)
+                character.isVisible = false;
+            else
+            {
+                //a long running process should have a stop action to cancel out the coroutie and run logic that should complete this command
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() => { if (character != null) character.isVisible = false; });
+
+                yield return character.Hide();
+            }
+        }
+
+        public static void SetPriority(string[] data)
+        {
+            Character character = CharacterManager.instance.GetCharacter(data[0], createIfDoesNotExist: false);
+            int priority;
+
+            if (character == null || data.Length < 2)
+                return;
+
+            if (!int.TryParse(data[1], out priority))
+                priority = 0;       
+
+            character.SetPriority(priority);    
+        }
+
+        public static IEnumerator Highlight(string[] data)
+        {
+            //format: setsprite(chara sprite)
+            Character character = CharacterManager.instance.GetCharacter(data[0], createIfDoesNotExist: false) as Character;    
+
+            if (character == null)
+                yield break;
+
+            bool immediate = false;
+
+            //grab da extra parameters
+            var parameters = ConvertDataToParameters(data, startingIndex: 1);
+
+            parameters.TryGetValue(new string[] { "-i", "-immediate" }, out immediate, defaultValue: false);
+
+            if (immediate)
+                character.HighLight(immediate: true);
+            else
+            {
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() => {  character?.HighLight(immediate: true); });
+                yield return character.HighLight();
+            }
+        }
+
+        public static IEnumerator Unhighlight(string[] data)
+        {
+            //format: setsprite(chara sprite)
+            Character character = CharacterManager.instance.GetCharacter(data[0], createIfDoesNotExist: false) as Character;
+
+            if (character == null)
+                yield break;
+
+            bool immediate = false;
+
+            //grab da extra parameters
+            var parameters = ConvertDataToParameters(data, startingIndex: 1);
+
+            parameters.TryGetValue(new string[] { "-i", "-immediate" }, out immediate, defaultValue: false);
+
+            if (immediate)
+                character.UnHighLight(immediate: true);
+            else
+            {
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.UnHighLight(immediate: true); });
+                yield return character.UnHighLight();
             }
         }
     }

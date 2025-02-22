@@ -1739,7 +1739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.1999512, y: 55.899994}
+  m_AnchoredPosition: {x: -1.1999512, y: 71}
   m_SizeDelta: {x: -2504.5, y: -454.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572529611
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -327.50757, y: -32.161842, z: -144.21735, w: -230.11183}
+  m_margin: {x: -327.50757, y: -32.161842, z: -144.21735, w: -253.16478}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3684,6 +3684,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 985076191}
     m_Modifications:
+    - target: {fileID: 1098272444969813112, guid: d7eafc28a669df24db731a0042027e18, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7ad9511d5c7e2db45a43451d75642698, type: 2}
     - target: {fileID: 6543527302384255258, guid: d7eafc28a669df24db731a0042027e18, type: 3}
       propertyPath: m_Name
       value: 'Character - [MC]'
@@ -3807,6 +3811,14 @@ PrefabInstance:
     - target: {fileID: 4313325840921692385, guid: b846f07e77d31f04b8c34408456f86b3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078862352634140383, guid: b846f07e77d31f04b8c34408456f86b3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -16.539978
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901647604054813386, guid: b846f07e77d31f04b8c34408456f86b3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -16.539978
       objectReference: {fileID: 0}
     - target: {fileID: 7365804801089368191, guid: b846f07e77d31f04b8c34408456f86b3, type: 3}
       propertyPath: m_Pivot.x

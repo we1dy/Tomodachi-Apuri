@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 namespace DIALOGUE
 { 
@@ -15,14 +17,15 @@ namespace DIALOGUE
         // Update is called once per frame
         void Update()
         {
-            // Keyboard input (for testing in the Unity Editor)
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+            // Keyboard input (for testing in)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame)
                 PromptAdvance();
 
-            //Touch input(for mobile devices)
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-                PromptAdvance();
+            // Touch input (for mobile devices)
+            //if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+            //    PromptAdvance();
         }
+
 
         public void PromptAdvance()
         {

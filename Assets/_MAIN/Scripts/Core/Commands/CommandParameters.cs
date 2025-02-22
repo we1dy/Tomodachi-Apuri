@@ -1,5 +1,6 @@
 using DIALOGUE;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 namespace COMMANDS
@@ -11,9 +12,9 @@ namespace COMMANDS
         private Dictionary<string, string> parameters = new Dictionary<string, string>();
         private List<string> unlabeledParameters = new List<string>();
 
-        public CommandParameters(string[] parameterArray) 
+        public CommandParameters(string[] parameterArray, int startingIndex = 0) 
         {
-            for (int i = 0; i < parameterArray.Length; i++)
+            for (int i = startingIndex; i < parameterArray.Length; i++)
             {
                 if (parameterArray[i].StartsWith(PARAMETER_IDENTIFIER) && !float.TryParse(parameterArray[i], out _))
                 {
@@ -87,8 +88,8 @@ namespace COMMANDS
 
             else if (typeof(T) == typeof(float))
             {
-                if (float.TryParse(parameterValue, out float floatValue))
-                {
+                if (float.TryParse(parameterValue, NumberStyles.Any, CultureInfo.InvariantCulture, out float floatValue))
+                    {
                     value = (T)(object)floatValue;
                     return true;
                 }

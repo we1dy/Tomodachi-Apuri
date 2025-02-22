@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CHARACTERS;
 using COMMANDS;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
@@ -65,8 +66,12 @@ namespace DIALOGUE
                     yield return Line_RunCommands(line);
 
                 if (line.hasDialogue)
+                { 
                     //wait for user input
                      yield return WaitForUserInput();
+
+                    CommandManager.instance.StopAllProcesses();
+                }
             }
         }
 
@@ -112,7 +117,18 @@ namespace DIALOGUE
             foreach(DL_COMMAND_DATA.Command command in commands)
             {
                 if (command.waitForCompletion || command.name == "wait")
-                    yield return CommandManager.instance.Execute(command.name, command.arguments);
+                {
+                    CoroutineWrapper cw = CommandManager.instance.Execute(command.name, command.arguments);
+                    while (!cw.IsDone)
+                    {
+                        if (userPrompt)
+                        {
+                            CommandManager.instance.StopCurrentProcess();   
+                            userPrompt = false;
+                        }
+                        yield return null;
+                    }
+                }
                 else
                     CommandManager.instance.Execute(command.name, command.arguments);
             }

@@ -32,7 +32,26 @@ namespace DIALOGUE
             {
                 Command command = new Command();
                 int index = cmd.IndexOf(ARGUMENTSCONTAINERR_ID);
-                command.name = cmd.Substring(0, index).Trim();
+
+                if (index == -1)
+                {
+                    command.name = cmd.Trim(); // No arguments, just use the whole command
+                    command.arguments = new string[0]; // No arguments
+                }
+                else
+                {
+                    command.name = cmd.Substring(0, index).Trim();
+
+                    // Prevent ArgumentOutOfRangeException if the command is incomplete
+                    if (index + 1 < cmd.Length - 1)
+                    {
+                        command.arguments = GetArgs(cmd.Substring(index + 1, cmd.Length - index - 2));
+                    }
+                    else
+                    {
+                        command.arguments = new string[0]; // Ensure no errors on malformed input
+                    }
+                }
 
                 if (command.name.ToLower().StartsWith(WAITCOMMAND_ID))
                 {
@@ -40,7 +59,6 @@ namespace DIALOGUE
                     command.waitForCompletion = true;
                 }
 
-                command.arguments = GetArgs(cmd.Substring(index + 1, cmd.Length - index - 2));
                 result.Add(command);
             }
 
