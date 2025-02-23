@@ -17,9 +17,14 @@ namespace DIALOGUE
         // Update is called once per frame
         void Update()
         {
-            // Keyboard input (for testing in)
-            if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame)
+            // Keyboard input
+            //if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame)
+            //    PromptAdvance();
+
+            if (Keyboard.current.escapeKey.isPressed || Keyboard.current.enterKey.isPressed)
                 PromptAdvance();
+
+
 
             // Touch input (for mobile devices)
             //if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)

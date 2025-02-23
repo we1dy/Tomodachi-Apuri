@@ -2,13 +2,23 @@ CreateCharacter(MC), CreateCharacter(Elara), CreateCharacter (Oliver)
 
 Narrator "Showing my beloved babies!!"
 
+
+
 wait(1)
 
-Show (MC Elara Oliver -e true -i true)
+Show(MC -spd 0.0001) ""
 
-MC.Hide(-spd 0.01), Oliver.Hide(-spd 0.01),
+wait(1)
 
-[wait]Elara.Unhighlight(), [wait]Elara.Show(-spd 0.01), [wait]Elara.Highlight()
+Show(Elara -spd 0.0001) ""
+
+wait(1)
+
+Show(Oliver -spd 0.0001) ""
+
+MC.Hide(-spd 0.1), Oliver.Hide(-spd 0.1),
+
+[wait]Elara.Unhighlight(), Show(Elara -spd 0.0001), [wait]Elara.Highlight()
 
 Elara [0:elara_body,1:elara_flustered] "Wh-{wa 0.5}who are you calling babies!?"
 
@@ -22,6 +32,6 @@ MC as Haruhi at 1 [0:mc_body,1:mc_curious] "You know we're not real right??"
 
 MC.Hide(-i true), Elara.Hide(-i true)
 
-Oliver.Show()
+Show(Oliver -spd 0.0001)
 
 enter Oliver "Wahhhhhhhh. . .{wa 1}Today's such a noisy day."
