@@ -88,8 +88,8 @@ namespace COMMANDS
 
             else if (typeof(T) == typeof(float))
             {
-                if (float.TryParse(parameterValue, NumberStyles.Any, CultureInfo.InvariantCulture, out float floatValue))
-                    {
+                if (float.TryParse(parameterValue, out float floatValue))
+                {
                     value = (T)(object)floatValue;
                     return true;
                 }

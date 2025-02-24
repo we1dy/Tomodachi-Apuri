@@ -1,37 +1,47 @@
-CreateCharacter(MC), CreateCharacter(Elara), CreateCharacter (Oliver)
+wait(1)
+
+SetLayerMedia(background Nebula), SetLayerMedia(background 1 SpaceshipInterior)
 
 Narrator "Showing my beloved babies!!"
 
+CreateCharacter(MC), Show(MC -spd 0.0001)
 
+ClearLayerMedia(background 1 -blend hypno)
 
-wait(1)
+wait(2)
 
-Show(MC -spd 0.0001) ""
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/flower")
 
-wait(1)
+Narrator "This is the cinematic!!!"
 
-Show(Elara -spd 0.0001) ""
+ClearLayerMedia(cinematic)
 
-wait(1)
+Narrator "Cinematic layer is cleared!!!!"
 
-Show(Oliver -spd 0.0001) ""
+wait(2)
 
-MC.Hide(-spd 0.1), Oliver.Hide(-spd 0.1),
+CreateCharacter(Elara), Show(Elara -spd 0.0001)
 
-[wait]Elara.Unhighlight(), Show(Elara -spd 0.0001), [wait]Elara.Highlight()
+wait(2)
 
-Elara [0:elara_body,1:elara_flustered] "Wh-{wa 0.5}who are you calling babies!?"
+CreateCharacter(Oliver), Show(Oliver -spd 0.0001)
 
-Elara.Unhighlight()
+wait(2)
 
-[wait]Elara.SetPriority(1), [wait]MC.SetPriority(10)
+Hide(MC), Hide(Oliver)
 
-MC.Show(-spd 0.01)
+Elara.SetSprite(elara_body -l 0 -spd 0.2), Elara.SetSprite(elara_flustered -l 1 -spd 0.2)
 
-MC as Haruhi at 1 [0:mc_body,1:mc_curious] "You know we're not real right??"
+Elara "Wh-{wa 0.5}who are you calling babies!?"
 
-MC.Hide(-i true), Elara.Hide(-i true)
+Hide(Elara), Hide(Oliver)
 
-Show(Oliver -spd 0.0001)
+MC.SetSprite(mc_body -l 0 -spd 0.2), MC.SetSprite(mc_curious -l 1 -spd 0.2)
 
-enter Oliver "Wahhhhhhhh. . .{wa 1}Today's such a noisy day."
+enter MC as Haruhi "You know we're not real right??"
+
+Hide(MC -e true -i true), Hide(Elara -e true -i true)
+
+Show(Oliver -spd 0.2) 
+
+Oliver "Wahhhhhhhh. . .{wa 1}Today's such a noisy day."

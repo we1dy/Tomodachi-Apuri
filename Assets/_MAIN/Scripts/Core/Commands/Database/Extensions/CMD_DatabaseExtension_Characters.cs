@@ -28,7 +28,6 @@ namespace COMMANDS
             database.AddCommand("hide", new Func<string[], IEnumerator>(HideAll));
             database.AddCommand("sort", new Action<string[]>(Sort)); 
 
-
             //add commands to characters
             CommandDatabase baseCommands = CommandManager.instance.CreateSubDatabase(CommandManager.DATABASE_CHARACTERS_BASE);
             baseCommands.AddCommand("move", new Func<string[], IEnumerator>(MoveCharacter));
@@ -37,6 +36,53 @@ namespace COMMANDS
             baseCommands.AddCommand("setpriority", new Action<string[]>(SetPriority));
             baseCommands.AddCommand("highlight", new Func<string[], IEnumerator>(Highlight));
             baseCommands.AddCommand("unhighlight", new Func<string[], IEnumerator>(Unhighlight));
+
+            CommandDatabase spriteCommands = CommandManager.instance.CreateSubDatabase(CommandManager.DATABASE_CHARACTERS_SPRITE);
+            spriteCommands.AddCommand("setsprite", new Func<string[], IEnumerator>(SetSprite));
+        }
+
+        public static IEnumerator SetSprite(string[] data)
+        {
+            //format: SetSprite
+            Character_Sprite character = CharacterManager.instance.GetCharacter(data[0], createIfDoesNotExist: false) as Character_Sprite;
+            int layer = 0;
+            string spriteName;
+            bool immediate = false;
+            float speed;
+
+            if (character == null || data.Length <2)
+                yield break;
+
+            //grab extra parameters
+            var parameters = ConvertDataToParameters(data, startingIndex: 1);
+
+            //try to get the sprite name
+            parameters.TryGetValue(new string[] { "-s", "-sprite" }, out spriteName);
+            //try to get the layer 
+            parameters.TryGetValue(new string[] { "-l", "-layer" }, out layer, defaultValue: 0);
+
+            //try to get transition speed
+            bool specifiedSpeed = parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 0.1f); 
+
+            //immediate transition or not
+            if (!specifiedSpeed)
+                parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: true);
+
+            //run the logic
+            Sprite sprite = character.GetSprite(spriteName);        
+
+            if (sprite == null)
+                yield break;    
+
+            if (immediate)
+            {
+                character.SetSprite(sprite, layer);
+            }
+            else
+            {
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.SetSprite(sprite, layer); });
+                yield return character.TransitionSprite(sprite, layer, speed);  
+            }
         }
 
         public static void CreateCharacter(string[] data)
