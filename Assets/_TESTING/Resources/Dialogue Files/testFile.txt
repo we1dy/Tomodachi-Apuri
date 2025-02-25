@@ -1,47 +1,13 @@
-wait(1)
+playsfx(thunder_strong_01 -p 0.85 -v 0.3 -loop true)
+narrator "Astraphobia is the fear of thunder and lightning."
 
-SetLayerMedia(background Nebula), SetLayerMedia(background 1 SpaceshipInterior)
+CreateCharacter(Elara), Show(Elara)
 
-Narrator "Showing my beloved babies!!"
 
-CreateCharacter(MC), Show(MC -spd 0.0001)
+PlayVoice(Elara/exclamation)
+Elara.SetSprite(elara_body -l 0 -spd 0.2), Elara.SetSprite(elara_surprised -l 1 -spd 0.2)
 
-ClearLayerMedia(background 1 -blend hypno)
 
-wait(2)
 
-SetLayerMedia(cinematic -m "~/Graphics/Gallery/flower")
+stopsfx(thunder_strong_01)
 
-Narrator "This is the cinematic!!!"
-
-ClearLayerMedia(cinematic)
-
-Narrator "Cinematic layer is cleared!!!!"
-
-wait(2)
-
-CreateCharacter(Elara), Show(Elara -spd 0.0001)
-
-wait(2)
-
-CreateCharacter(Oliver), Show(Oliver -spd 0.0001)
-
-wait(2)
-
-Hide(MC), Hide(Oliver)
-
-Elara.SetSprite(elara_body -l 0 -spd 0.2), Elara.SetSprite(elara_flustered -l 1 -spd 0.2)
-
-Elara "Wh-{wa 0.5}who are you calling babies!?"
-
-Hide(Elara), Hide(Oliver)
-
-MC.SetSprite(mc_body -l 0 -spd 0.2), MC.SetSprite(mc_curious -l 1 -spd 0.2)
-
-enter MC as Haruhi "You know we're not real right??"
-
-Hide(MC -e true -i true), Hide(Elara -e true -i true)
-
-Show(Oliver -spd 0.2) 
-
-Oliver "Wahhhhhhhh. . .{wa 1}Today's such a noisy day."
