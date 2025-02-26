@@ -1,13 +1,55 @@
-playsfx(thunder_strong_01 -p 0.85 -v 0.3 -loop true)
-narrator "Astraphobia is the fear of thunder and lightning."
+wait(1)
 
-CreateCharacter(Elara), Show(Elara)
+PlaySong("Calm")
+SetLayerMedia(background hallway_bg)
 
+narrator "It was a normal day. {wa 1}Well, as normal as one can expect from an 8 am College Class."
+narrator "MC's class just finished. They slowly trudge out of the classroom, dragging their feet in fatigue despite sitting all morning."
 
-PlayVoice(Elara/exclamation)
-Elara.SetSprite(elara_body -l 0 -spd 0.2), Elara.SetSprite(elara_surprised -l 1 -spd 0.2)
+CreateCharacter(MC) 
+MC.SetSprite(mc_body -l 0 -spd 0.5), MC.SetSprite(mc_tired -l 1 -spd 0.5)
 
+wait(1)
 
+enter MC "Ughhhh. . .{wa 1}I <b><i>hate</i></b> morning classes."
 
-stopsfx(thunder_strong_01)
+narrator "MC was incredibly tired, going home was all they could think about. Their feet automattically moving on their own, but after a few minutes, they remembered something."
 
+MC.SetSprite(mc_panic -l 1 -spd 0.9)
+MC "Wait. . . . ."
+PlayVoice(Exclamation)
+MC [0:mc_body,1:mc_panic] "I have to meet up with Elara!! {wa 1}I'm going to be late!!!"
+
+[wait]HideDB(-spd 0.1)
+
+Hide(MC -spd 0.5)
+
+wait(1)
+
+ClearLayerMedia(background -blend radialClock), wait(1)
+
+wait(1)
+
+SetLayerMedia(background canteen_bg -blend radialClock) 
+
+narrator "10 minutes later. . . ."
+
+narrator "On a table all on her own, Elara sits by herself, a look of irritation written on her face."
+
+CreateCharacter(Elara)
+Elara.Show()
+
+wait(3)
+
+Hide(Elara -spd 0.5)
+
+MC [0:mc_body,1:mc_tired]
+enter MC "Elara!! I'm here! Sorry I'm late."
+
+[wait]HideUI(-spd 0.3)
+
+wait(1)
+
+[wait]ShowUI(-spd 0.8)
+
+narrator "Issa wrap!"

@@ -1,0 +1,34 @@
+{
+    "name": "VisualNovelInput",
+    "maps": [
+        {
+            "name": "General",
+            "id": "f5e49b33-524f-4508-9b25-b528e6177f2e",
+            "actions": [
+                {
+                    "name": "Next",
+                    "type": "Button",
+                    "id": "6f1b004d-e692-441a-94d5-aa1d7f4f21b3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0ad56bfb-c5d4-434b-adfb-e536502cc418",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -45,14 +45,11 @@ namespace TESTING
             MC.Hide();
 
             AudioManager.instance.PlayTrack("Audio/Music/Calm");
-            AudioManager.instance.PlayTrack("Audio/Ambience/RainyMood", 1, pitch: 0.7f);
 
             GraphicPanelManager.instance.GetPanel("background").GetLayer(0, true).SetTexture("Graphics/BG Images/canteen_bg");
 
             yield return MC.Say("narrator\"Elara is currently at the canteen, hoping to get an early lunch before the inevitable rush that comes during the afternoon. \"");
-            yield return MC.Say("What she thought to be a peaceful reprieve from noisy classmates. . . {wa 3} well, let's just say what happened next comes to be a wonderful surprise. \"");
-
-            AudioManager.instance.StopTrack(1);
+            yield return MC.Say("narrator\"What she thought to be a peaceful reprieve from noisy classmates. . . {wa 1}well, let's just say what happened next comes to be a wonderful surprise.\"");
 
             Character_Sprite Elara = CreateCharacter("Elara") as Character_Sprite;
             Elara.SetSprite(Elara.GetSprite("elara_body"), 0);
@@ -65,7 +62,8 @@ namespace TESTING
             MC.Show();
             MC.SetSprite(MC.GetSprite("mc_body"), 0);
             MC.SetSprite(MC.GetSprite("mc_curious"), 1);
-            yield return MC.Say("MC\"Watcha doing?\"");
+            MC.Animate("Surprise");
+            yield return MC.Say("MC\"Watcha doing? Watcha doing??\"");
 
             MC.Hide();
 
@@ -146,14 +144,14 @@ namespace TESTING
             Elara.Animate("Shiver");
             Elara.SetSprite(Elara.GetSprite("elara_body"), 0);
             Elara.SetSprite(Elara.GetSprite("elara_smiling"), 1);
-            yield return Elara.Say("Elara\"Pft!{wa 1}Sorry! I couldn't help it.\"");
+            yield return Elara.Say("Elara\"Pft!{wa 1} Sorry! I couldn't help it.\"");
 
             Elara.Hide();
 
             MC.Show();
             MC.SetSprite(MC.GetSprite("mc_body"), 0);
             MC.SetSprite(MC.GetSprite("mc_angry"), 1);
-            yield return MC.Say("MC\"If you weren't so cute, I would've. . .\"");
+            yield return MC.Say("MC\"Hmph! If you weren't so cute, I would've. . .\"");
 
             Elara.Show();
             Elara.SetSprite(Elara.GetSprite("elara_body"), 0);

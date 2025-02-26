@@ -70,8 +70,7 @@ namespace CHARACTERS
         public void SetDialogueFont(TMP_FontAsset font) => config.dialogueFont = font;
         public void SetNameColor(Color color) => config.nameColor = color;
         public void SetDialogueColor(Color color) => config.dialogueColor = color;
-
-        public void ResetConfigurationData() => config = CharacterManager.instance.GetCharacterConfig(name);
+        public void ResetConfigurationData() => config = CharacterManager.instance.GetCharacterConfig(name, getOriginal: true);
         public void UpdateTextCuztomizationOnScreen() => dialogueSystem.ApplySpeakerDataToDialogueContainer(config);
 
         public virtual Coroutine Show(float speedMultiplier = 1f)

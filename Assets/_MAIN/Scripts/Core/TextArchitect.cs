@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
 using System.Collections;
 
 
@@ -8,8 +7,7 @@ public class TextArchitect
 {
     private TextMeshProUGUI tmpro_ui;
     private TextMeshPro tmpro_world;
-    private TMP_Text tmpro => tmpro_ui != null ? tmpro_ui : tmpro_world;
-
+    public TMP_Text tmpro => tmpro_ui != null ? tmpro_ui : tmpro_world;
 
     public string currentText => tmpro.text;
     public string targetText { get; private set; } = "";
@@ -21,7 +19,7 @@ public class TextArchitect
     public enum BuildMethod { instant, typewriter, fade }
     public BuildMethod buildMethod = BuildMethod.typewriter;
 
-    public Color textColor { get { return textColor; } set { tmpro.color = value; } }
+    public Color textColor { get { return tmpro.color; } set { tmpro.color = value; } }
 
     public float speed { get { return baseSpeed * speedMultiplier; } set { speedMultiplier = value; } }
     private const float baseSpeed = 1;
@@ -64,10 +62,8 @@ public class TextArchitect
         return buildProcess;
     }
 
-
     private Coroutine buildProcess = null;
     public bool isBuilding => buildProcess != null;
-
     public void Stop()
     {
         if (!isBuilding)
@@ -93,12 +89,6 @@ public class TextArchitect
         OnComplete();
     }
 
-    private void OnComplete()
-    {
-        buildProcess = null;
-        hurryUp = false;
-    }
-
     public void ForceComplete()
     {
         switch (buildMethod)
@@ -115,30 +105,28 @@ public class TextArchitect
         OnComplete();
     }
 
+    private void OnComplete()
+    {
+        buildProcess = null;
+        hurryUp = false;
+    }
+
     private void Prepare()
     {
 
         switch (buildMethod)
         {
-            case BuildMethod.instant:
-                Prepare_Instant();
-                break;
             case BuildMethod.typewriter:
                 Prepare_Typewriter();
+                break;
+            case BuildMethod.instant:
+                Prepare_Instant();
                 break;
             case BuildMethod.fade:
                 Prepare_Fade();
                 break;
         }
 
-    }
-
-    private void Prepare_Instant()
-    {
-        tmpro.color = tmpro.color;
-        tmpro.text = fullTargetText;
-        tmpro.ForceMeshUpdate();
-        tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
     }
 
     private void Prepare_Typewriter()
@@ -155,6 +143,14 @@ public class TextArchitect
 
         tmpro.text += targetText;
         tmpro.ForceMeshUpdate();
+    }
+
+    private void Prepare_Instant()
+    {
+        tmpro.color = tmpro.color;
+        tmpro.text = fullTargetText;
+        tmpro.ForceMeshUpdate();
+        tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
     }
 
     private void Prepare_Fade()
@@ -210,6 +206,8 @@ public class TextArchitect
             yield return new WaitForSeconds(0.015f / speed);
         }
     }
+
+
 
     private IEnumerator Build_Fade()
     {

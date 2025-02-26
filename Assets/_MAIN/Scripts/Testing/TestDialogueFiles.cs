@@ -1,6 +1,7 @@
 using DIALOGUE;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class TestDialogueFiles : MonoBehaviour
@@ -29,6 +30,15 @@ public class TestDialogueFiles : MonoBehaviour
         //    }
         //}
         DialogueSystem.instance.Say(lines);
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+            DialogueSystem.instance.dialogueContainer.Hide();
+
+        else if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+            DialogueSystem.instance.dialogueContainer.Show();
     }
 }
 

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using CHARACTERS;
 using COMMANDS;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace DIALOGUE
@@ -18,10 +16,14 @@ namespace DIALOGUE
         private TextArchitect architect = null;
         private bool userPrompt = false;
 
+        private TagManager tagManager;
+
         public ConversationManager(TextArchitect architect)
         {
             this.architect = architect;
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
+
+            tagManager = new TagManager();
         }
 
         private void OnUserPrompt_Next()
@@ -65,6 +67,7 @@ namespace DIALOGUE
                 if (line.hasCommands)
                     yield return Line_RunCommands(line);
 
+                //wait for user input if dialogue was in this line
                 if (line.hasDialogue)
                 { 
                     //wait for user input
@@ -75,15 +78,6 @@ namespace DIALOGUE
             }
         }
 
-        IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
-        {
-            // show or hide speaker name if there is one present
-            if (line.hasSpeaker)
-                HandleSpeakerLogic(line.speakerData);
-
-            //Build dialogue
-            yield return BuildLineSegments(line.dialogueData);
-        }
 
         private void HandleSpeakerLogic(DL_SPEAKER_DATA speakerData)
         {
@@ -95,7 +89,7 @@ namespace DIALOGUE
                 character.Show();
 
             //Add character name to the UI
-            dialogueSystem.ShowSpeakerName(speakerData.displayName);
+            dialogueSystem.ShowSpeakerName(tagManager.Inject(speakerData.displayName));
 
             //Now cutomizze the dialogue for this characterr - if applicable
             DialogueSystem.instance.ApplySpeakerDataToDialogueContainer(speakerData.name);
@@ -166,8 +160,24 @@ namespace DIALOGUE
 
         }
 
+        IEnumerator Line_RunDialogue(DIALOGUE_LINE line)
+        {
+            // show or hide speaker name if there is one present
+            if (line.hasSpeaker)
+                HandleSpeakerLogic(line.speakerData);
+
+            //if the dialogue box is not visible - make sure it becomes automatically
+            if (!dialogueSystem.dialogueContainer.isVisible)
+                dialogueSystem.dialogueContainer.Show();
+
+            //Build dialogue
+            yield return BuildLineSegments(line.dialogueData);
+        }
+
         IEnumerator BuildDialogue(string dialogue, bool append = false)
         {
+            dialogue = tagManager.Inject(dialogue);
+
             //build dialogue
             if (!append)
                 architect.Build(dialogue);
@@ -177,23 +187,29 @@ namespace DIALOGUE
             //wait for dialogue to finish
             while (architect.isBuilding)
             {
-                if (!architect.hurryUp)
-                    architect.hurryUp = true;
-                else
-                    architect.ForceComplete();
+                //ETONG IF STATEMENT UNG NAKALIMUTAN KO GRRRRRRF;LKFKDS;
+                if (userPrompt)
+                {
+                    //EO ETO UNG SUSPEK
+                    if (!architect.hurryUp)
+                        architect.hurryUp = true;
+                    else
+                        architect.ForceComplete();
 
-                userPrompt = false;
-
+                    userPrompt = false;
+                }
                 yield return null;
             }
-            yield return null;
-
         }
 
         IEnumerator WaitForUserInput()
         {
+            dialogueSystem.prompt.Show();
+
             while (!userPrompt)
                 yield return null;
+
+            dialogueSystem.prompt.Hide();
 
             userPrompt = false;
 
