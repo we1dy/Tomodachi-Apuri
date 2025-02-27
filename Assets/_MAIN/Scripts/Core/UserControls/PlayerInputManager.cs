@@ -2,40 +2,42 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System;
 
 namespace DIALOGUE
 { 
     public class PlayerInputManager : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
+        private PlayerInput input;
+        private List<(InputAction action, Action<InputAction.CallbackContext> command)> actions = new List<(InputAction action, Action<InputAction.CallbackContext> command)> ();
         
-        }
-
-        // Update is called once per frame
-        void Update()
+        private void Awake()
         {
-            // Keyboard input
-            //if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame)
-            //    PromptAdvance();
-
-            if (Keyboard.current.escapeKey.isPressed || Keyboard.current.enterKey.isPressed)
-                PromptAdvance();
-
-
-
-            // Touch input (for mobile devices)
-            //if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
-            //    PromptAdvance();
+            input = GetComponent<PlayerInput> ();
+            InitializeActions();
         }
 
+        private void InitializeActions()
+        {
+            actions.Add((input.actions["Next"], OnNext));
+        }
 
-        public void PromptAdvance()
+        private void OnEnable()
+        {
+            foreach (var inputAction in actions)
+                inputAction.action.performed += inputAction.command;
+        }
+        private void OnDisable()
+        {
+            foreach (var inputAction in actions)
+                inputAction.action.performed -= inputAction.command;
+        }
+
+        public void OnNext(InputAction.CallbackContext c)
         {
             DialogueSystem.instance.OnUserPrompt_Next();
         }
+
     }
 
 }

@@ -1,6 +1,5 @@
 using CHARACTERS;
 using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 namespace DIALOGUE

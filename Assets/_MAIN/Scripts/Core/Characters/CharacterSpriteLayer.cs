@@ -80,7 +80,7 @@ namespace CHARACTERS
         private Coroutine TryStartLevelingAlphas()
         {
             if (isLevelingAlpha)
-                return co_levelingAlpha;
+                characterManager.StopCoroutine(co_levelingAlpha);
 
             co_levelingAlpha = characterManager.StartCoroutine(RunAlphaLeveling());
 
