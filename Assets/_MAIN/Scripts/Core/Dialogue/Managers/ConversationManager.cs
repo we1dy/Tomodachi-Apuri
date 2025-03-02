@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CHARACTERS;
 using COMMANDS;
+using DIALOGUE.LogicalLines;
 using UnityEngine;
 
 namespace DIALOGUE
@@ -17,6 +18,7 @@ namespace DIALOGUE
         private bool userPrompt = false;
 
         private TagManager tagManager;
+        private LogicalLineManager logicalLineManager;
 
         public ConversationManager(TextArchitect architect)
         {
@@ -24,6 +26,7 @@ namespace DIALOGUE
             dialogueSystem.onUserPrompt_Next += OnUserPrompt_Next;
 
             tagManager = new TagManager();
+            logicalLineManager = new LogicalLineManager();
         }
 
         private void OnUserPrompt_Next()
@@ -59,21 +62,28 @@ namespace DIALOGUE
 
                 DIALOGUE_LINE line = DialogueParser.Parse(conversation[i]);
 
-                //Show dialogue
-                if (line.hasDialogue)
-                    yield return Line_RunDialogue(line);
+                if (logicalLineManager.TryGetLogic(line, out Coroutine logic))
+                {
+                    yield return logic;
+                }
+                else
+                {
+                    //Show dialogue
+                    if (line.hasDialogue)
+                        yield return Line_RunDialogue(line);
 
-                //Run any commands
-                if (line.hasCommands)
-                    yield return Line_RunCommands(line);
+                    //Run any commands
+                    if (line.hasCommands)
+                        yield return Line_RunCommands(line);
 
-                //wait for user input if dialogue was in this line
-                if (line.hasDialogue)
-                { 
-                    //wait for user input
-                     yield return WaitForUserInput();
+                    //wait for user input if dialogue was in this line
+                    if (line.hasDialogue)
+                    {
+                        //wait for user input
+                        yield return WaitForUserInput();
 
-                    CommandManager.instance.StopAllProcesses();
+                        CommandManager.instance.StopAllProcesses();
+                    }
                 }
             }
         }

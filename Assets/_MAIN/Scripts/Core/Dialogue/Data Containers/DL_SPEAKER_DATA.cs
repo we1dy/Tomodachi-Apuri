@@ -8,11 +8,9 @@ namespace DIALOGUE
 {
     public class DL_SPEAKER_DATA
     {
+        public string rawData { get; private set; } = string.Empty;
         public string name, castName;
 
-        /// <summary>
-        /// this is the name that will dispay in the dialogue box to show who is speaking.
-        /// </summary>
         public string displayName => isCastingName ? castName : name;
         public Vector2 castPosition;
         public List<(int layer, string expression)> CastExpressions { get; set; }
@@ -45,6 +43,7 @@ namespace DIALOGUE
 
         public DL_SPEAKER_DATA(string rawSpeaker)
         {
+            rawData = rawSpeaker;
             rawSpeaker = ProcessKeywords(rawSpeaker);
 
             string pattern = @$"{NAMECAST_ID}|{POSITIONCAST_ID}|{EXPRESSIONCAST_ID.Insert(EXPRESSIONCAST_ID.Length - 1, @"\")}";

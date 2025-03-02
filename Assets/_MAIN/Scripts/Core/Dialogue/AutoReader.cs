@@ -1,14 +1,13 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using UnityEditor.Rendering;
 
 namespace DIALOGUE
 {
     public class AutoReader : MonoBehaviour
     {
         private const int DEFAULT_CHARACTERS_READ_PER_SECOND = 18;
-        private const float READ_TIME_PADDING = 0.5f;
+        private const float READ_TIME_PADDING = 1f;
         private const float MAX_READ_TIME = 99f;
         private const float MIN_READ_TIME = 1f;
         private const string STATUS_TEXT_AUTO = "[ Auto ]";
@@ -18,7 +17,7 @@ namespace DIALOGUE
         private TextArchitect architect => conversationManager.architect;
 
         public bool skip { get; set; } = false;
-        public float speed { get; set; } = 1f;
+        private float speed { get; set; } = 1f;
 
         public bool isOn => co_running != null;
         private Coroutine co_running = null;
@@ -46,10 +45,12 @@ namespace DIALOGUE
                 return;
 
             StopCoroutine(co_running);
-            skip = false;
             co_running = null;
-            statusText.text = string.Empty;    
+            skip = false;
+
+            statusText.text = string.Empty;  // Clear the status text
         }
+
 
         private IEnumerator AutoRead()
         {
@@ -94,71 +95,35 @@ namespace DIALOGUE
             Disable();
         }
 
-        //public void Toggle_Auto()
-        //{
-        //    skip = false;
-
-        //    if (!isOn)
-        //    {
-        //        Enable();
-        //        statusText.text = STATUS_TEXT_AUTO;
-        //    }
-        //    else
-        //    {
-        //        Disable();
-        //    }
-        //}
-
-        //public void Toggle_Skip()
-        //{
-        //    skip = true;
-        //    if (!isOn) 
-        //    { 
-        //        Enable();
-        //        statusText.text = STATUS_TEXT_SKIP;
-        //    }
-        //    else
-        //    {
-        //        Disable();
-        //    }
-        //}
-
         public void Toggle_Auto()
         {
-            bool prevState = skip;
-            skip = false;
-
-            if (prevState)
-                Enable();
-
+            if (isOn)
+            {
+                Disable();
+                statusText.text = string.Empty;  // Ensure text is cleared
+            }
             else
             {
-                if (!isOn)
-                    Enable();
-                else
-                    Disable();
+                skip = false;
+                Enable();
+                statusText.text = STATUS_TEXT_AUTO;
             }
-
-            statusText.text = STATUS_TEXT_AUTO;
         }
 
         public void Toggle_Skip()
         {
-            bool prevState = skip;
-            skip = true;
-
-            if (!prevState)
-                Enable();
-
+            if (isOn)
+            {
+                Disable();
+                statusText.text = string.Empty;  // Ensure text is cleared
+            }
             else
             {
-                if (!isOn)
-                    Enable();
-                else
-                    Disable();
+                skip = true;
+                Enable();
+                statusText.text = STATUS_TEXT_SKIP;
             }
-
-            statusText.text = STATUS_TEXT_SKIP;
         }
+
     }
 }

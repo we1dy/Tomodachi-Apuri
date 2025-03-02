@@ -139,18 +139,36 @@ namespace COMMANDS
                 KillProcess(topProcess);
         }
 
+        //public void StopAllProcesses()
+        //{
+        //    foreach (var c in activeProcesses)
+        //    {
+        //        if (c.runningProcess != null && !c.runningProcess.IsDone)
+        //            c.runningProcess.Stop();
+
+        //        c.onTerminateAction.Invoke();
+        //    }
+
+        //    activeProcesses.Clear();
+        //}
+
         public void StopAllProcesses()
         {
             foreach (var c in activeProcesses)
             {
+                if (c == null) continue; // Prevents processing a null reference
+
                 if (c.runningProcess != null && !c.runningProcess.IsDone)
                     c.runningProcess.Stop();
 
-                c.onTerminateAction.Invoke();
+                // Ensure onTerminateAction is not null before invoking
+                if (c.onTerminateAction != null)
+                    c.onTerminateAction.Invoke();
             }
 
             activeProcesses.Clear();
         }
+
 
         private IEnumerator RunningProcess(CommandProcess process)
         {
