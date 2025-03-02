@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 41dd32c912aa1744186269b2f355ea22
+guid: 2429bdc92f7232b4f81003e7563ca477
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6495045491223697532
-    second: asher_ch_0
-  - first:
-      213: 1389319837072247699
-    second: asher_ch_1
-  - first:
-      213: -8102084413348731381
-    second: asher_ch_2
-  - first:
-      213: 3478989234785154677
-    second: asher_ch_3
-  - first:
-      213: -6099813813782739555
-    second: asher_ch_4
-  - first:
-      213: -5938677663885270638
-    second: asher_ch_5
+      213: 5979845009024255936
+    second: choice panel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -87,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -141,133 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: asher_ch_0
+      name: choice panel_0
       rect:
         serializedVersion: 2
-        x: 1227
-        y: 2163
-        width: 184
-        height: 120
+        x: 34
+        y: 77
+        width: 624
+        height: 337
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 230, y: 17, z: 226, w: 9}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7814684679032a50800000000000000
-      internalID: 6495045491223697532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asher_ch_1
-      rect:
-        serializedVersion: 2
-        x: 1241
-        y: 2274
-        width: 190
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 39b4818e70bd74310800000000000000
-      internalID: 1389319837072247699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asher_ch_2
-      rect:
-        serializedVersion: 2
-        x: 1434
-        y: 2066
-        width: 149
-        height: 273
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b06ae1a172d9f8f80800000000000000
-      internalID: -8102084413348731381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asher_ch_3
-      rect:
-        serializedVersion: 2
-        x: 1379
-        y: 2066
-        width: 64
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 576f6ccc64ad74030800000000000000
-      internalID: 3478989234785154677
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asher_ch_4
-      rect:
-        serializedVersion: 2
-        x: 1285
-        y: 1972
-        width: 267
-        height: 89
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d95857197ab195ba0800000000000000
-      internalID: -6099813813782739555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asher_ch_5
-      rect:
-        serializedVersion: 2
-        x: 1411
-        y: 1945
-        width: 98
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29162901124959da0800000000000000
-      internalID: -5938677663885270638
+      spriteID: 0c788c66a5dacf250800000000000000
+      internalID: 5979845009024255936
       vertices: []
       indices: 
       edges: []
@@ -276,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 12e31c8e23680bd4e99a1ae97fc21764
     internalID: 0
     vertices: []
     indices: 
@@ -286,12 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      asher_ch_0: 6495045491223697532
-      asher_ch_1: 1389319837072247699
-      asher_ch_2: -8102084413348731381
-      asher_ch_3: 3478989234785154677
-      asher_ch_4: -6099813813782739555
-      asher_ch_5: -5938677663885270638
+      choice panel_0: 5979845009024255936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

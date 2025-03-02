@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 124290125306773434
     second: asher_body_0
+  - first:
+      213: -6095123695902211595
+    second: asher_body_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,10 +132,10 @@ TextureImporter:
       name: asher_body_0
       rect:
         serializedVersion: 2
-        x: 183
-        y: 0
-        width: 1674
-        height: 2428
+        x: 929
+        y: 2865
+        width: 34
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,6 +146,28 @@ TextureImporter:
       bones: []
       spriteID: abfbfffd53199b100800000000000000
       internalID: 124290125306773434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asher_body_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 1901
+        height: 2701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f1ceabba45c96ba0800000000000000
+      internalID: -6095123695902211595
       vertices: []
       indices: 
       edges: []
@@ -162,6 +187,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       asher_body_0: 124290125306773434
+      asher_body_1: -6095123695902211595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
