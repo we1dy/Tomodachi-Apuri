@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bg shrine_hallway_0: -2794565982437116311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

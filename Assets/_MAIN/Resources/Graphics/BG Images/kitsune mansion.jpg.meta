@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kitsune mansion_0: 6618139112316485079
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

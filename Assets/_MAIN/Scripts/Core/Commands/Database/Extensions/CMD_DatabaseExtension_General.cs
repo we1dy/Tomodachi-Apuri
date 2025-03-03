@@ -48,7 +48,7 @@ namespace COMMANDS
                 return;
             }
 
-            List<string> lines = FileManager.ReadTextAsset(file);
+            List<string> lines = FileManager.ReadTextAsset(file, includeBlankLLines: true);
             Conversation newConversation = new Conversation(lines);
 
             if (enqueue)

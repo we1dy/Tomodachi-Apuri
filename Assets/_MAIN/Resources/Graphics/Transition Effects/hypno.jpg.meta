@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hypno_0: 4363587037882009350
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BG Shrine_dungeon_0: -6963159038480334166
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

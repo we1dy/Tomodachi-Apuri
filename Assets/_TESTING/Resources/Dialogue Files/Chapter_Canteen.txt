@@ -1,0 +1,11 @@
+PlaySong("Calm")
+SetLayerMedia(background canteen_bg)
+
+ShowDB(-i true)
+
+enter MC as <input> "Jayce. At first I didn't like him at all in Season One."
+enter MC as <input> "But my views have changed on him, if anything, I relate to him a lot."
+enter MC as <input> "It also helps that he's absolute eye candy."
+Hide(MC)
+enter Elara "Wow. I didn't think you'd like him that way."
+		

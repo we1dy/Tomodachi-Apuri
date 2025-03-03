@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bg inn_bedroom_0: -1653216368141078657
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

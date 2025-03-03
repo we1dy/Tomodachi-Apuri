@@ -1,3 +1,6 @@
+PlaySong("Happy")
+SetLayerMedia(background counselor_bg)
+
 narrator "What is your name?"
 
 input "Input your name:"
@@ -11,30 +14,25 @@ narrator "Do you like Jayce or Viktor?"
 choice "Which character do you like the most?"
 {
 	-Jayce
-		enter MC as <input> "Jayce. At first I didn't like him at all in Season One."
-		enter MC as <input> "But my views have changed on him, if anything, I relate to him a lot."
-		enter MC as <input> "It also helps that he's absolute eye candy."
-		Hide(MC)
-		enter Elara "Wow. I didn't think you'd like him that way."
+		enter MC as <input> "Definitely Jayce."
+		Load(Chapter_Canteen -enqueue true)
 	-Viktor
-		enter MC as <input> "I was indifferent to his character in Season One."
-		enter MC as <input> "But that changed. I love his character so much."
-		enter MC as <input> "So complex and so many to dissect about."
-		enter MC as <input> "Also JayVik, hehe."
-		Hide(MC)
-		enter Elara "Honestly, same."
+		enter MC as <input> "Viktor all the way!"
+		Load(Chapter_Hallway)
 	-I love both Jayce and Viktor
 		enter MC as <input> "Need I say more?"
 		enter MC as <input> "I rest my case then."
 		Hide(MC)
 		enter Elara "Hm. . .JayVik or IwaOi?"
+		Hide(Elara)
 		choice "Choose your favourite ship."
 		{
 			-IwaOi
-				Hide(Elara)
 				enter MC as <input> "Obviously IwaOi! They were my first otp and will always will be."
+				Hide(MC)
 			-JayVik
 				enter MC as <input> "JayVik grew onto me so fast, plus cosmic fated soul partners for the win!!"
+				Hide(MC)
 		}
 		enter Elara "This just proves my point that you're a total geek about this."
 		Hide(Elara)
@@ -42,5 +40,12 @@ choice "Which character do you like the most?"
 		Hide(MC)
 
 }
+
+Hide(MC)
+HideDB(-spd 0.5)
+wait(1)
+ClearLayerMedia(background), wait(1)
+StopSong()
+wait(1)
 
 

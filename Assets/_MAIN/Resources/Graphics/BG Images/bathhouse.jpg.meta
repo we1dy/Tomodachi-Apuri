@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bathhouse_0: 1948741711936589855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
