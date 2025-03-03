@@ -29,6 +29,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2eafa522-f9a7-4b80-9056-2beda3e66618",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e0f758c1-c138-4878-bb93-9bb9877bc453",
                     "path": "<Keyboard>/space",
                     "interactions": "",

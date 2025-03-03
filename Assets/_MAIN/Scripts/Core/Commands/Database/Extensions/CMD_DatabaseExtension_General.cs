@@ -1,7 +1,7 @@
+using DIALOGUE;
 using System;
 using System.Collections;
-using System.Net.NetworkInformation;
-using DIALOGUE;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace COMMANDS
@@ -10,18 +10,51 @@ namespace COMMANDS
     {
         private static string[] PARAM_IMMEDIATE => new string[] { "-i", "-immediate" };
         private static string[] PARAM_SPEED => new string[] { "-spd", "-speed" };
+        private static string[] PARAM_FILEPATH => new string[] { "-f", "-file", "-filepath" };
+        private static string[] PARAM_ENQUEUE => new string[] { "-e", "-enqueue" };
 
         new public static void Extend(CommandDatabase database)
         {
             database.AddCommand("wait", new Func<string, IEnumerator>(Wait));
 
-            //dialoge system controls
+            //dialoge system controls(buong scene mawawala, included dg container)
             database.AddCommand("showui", new Func<string[], IEnumerator>(ShowDialogueSystem));
             database.AddCommand("hideui", new Func<string[], IEnumerator>(HideDialogueSystem));
 
-            //dialoge box controls
+            //dialoge box controls(dg container)
             database.AddCommand("showdb", new Func<string[], IEnumerator>(ShowDialogueBox));
             database.AddCommand("hidedb", new Func<string[], IEnumerator>(HideDialogueBox));
+
+            //loading in a new file to read(new scene)
+            database.AddCommand("load", new Action<string[]>(LoadNewDialogueFile));
+        }
+
+        private static void LoadNewDialogueFile(string[] data)
+        {
+            string fileName = string.Empty;
+            bool enqueue = false;
+
+            var parameters = ConvertDataToParameters(data, startingIndex: 0);
+
+            parameters.TryGetValue(PARAM_FILEPATH, out fileName);
+            parameters.TryGetValue(PARAM_ENQUEUE, out enqueue, defaultValue: false);
+
+            string filePath = FilePaths.GetPathToResource(FilePaths.resources_dialogueFiles, fileName);
+            TextAsset file = Resources.Load<TextAsset>(filePath);   
+
+            if (file == null)
+            {
+                Debug.LogWarning($"File '{filePath}' could not be loaded from dialogue files. Please ensure it exists within the '{FilePaths.resources_dialogueFiles}' resources folder.");
+                return;
+            }
+
+            List<string> lines = FileManager.ReadTextAsset(file);
+            Conversation newConversation = new Conversation(lines);
+
+            if (enqueue)
+                DialogueSystem.instance.conversationManager.Enqueue(newConversation);   
+            else
+                DialogueSystem.instance.conversationManager.StartConversation(newConversation);
         }
 
         private static IEnumerator Wait(string data)

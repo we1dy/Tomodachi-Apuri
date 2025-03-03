@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CHARACTERS;
 using COMMANDS;
 using DIALOGUE.LogicalLines;
+using Unity.Collections;
 using UnityEngine;
 
 namespace DIALOGUE
@@ -20,6 +21,10 @@ namespace DIALOGUE
         private TagManager tagManager;
         private LogicalLineManager logicalLineManager;
 
+        public Conversation conversation => (conversationQueue.isEmpty() ? null : conversationQueue.top);
+        public int conversationProgress => (conversationQueue.isEmpty() ? -1 : conversationQueue.top.GetProgress());
+        private ConversationQueue conversationQueue;
+
         public ConversationManager(TextArchitect architect)
         {
             this.architect = architect;
@@ -27,18 +32,26 @@ namespace DIALOGUE
 
             tagManager = new TagManager();
             logicalLineManager = new LogicalLineManager();
+
+            conversationQueue = new ConversationQueue();
         }
+
+        public void Enqueue(Conversation conversation) => conversationQueue.Enqueue(conversation);
+        public void EnqueuePriority(Conversation conversation) => conversationQueue.EnqueuePriority(conversation);  
 
         private void OnUserPrompt_Next()
         {
             userPrompt = true;
         }
         
-        public Coroutine StartConversation(List<string> conversation)
+        public Coroutine StartConversation(Conversation conversation)
         {
             StopConversation();
+            conversationQueue.Clear();
 
-            process = dialogueSystem.StartCoroutine(RunningCoversation(conversation));
+            Enqueue(conversation);
+
+            process = dialogueSystem.StartCoroutine(RunningCoversation());
 
             return process;
         }
@@ -52,15 +65,28 @@ namespace DIALOGUE
             process = null;
         }
 
-        IEnumerator RunningCoversation(List<string> conversation)
+        IEnumerator RunningCoversation()
         {
-            for (int i = 0; i < conversation.Count; i++)
+            while(!conversationQueue.isEmpty())
             {
-                //Dont show any blank lines or run any logic
-                if (string.IsNullOrWhiteSpace(conversation[i]))
-                    continue;
+                Conversation currentConversation = conversation;
 
-                DIALOGUE_LINE line = DialogueParser.Parse(conversation[i]);
+                if (currentConversation.HasReachedEnd())
+                {
+                    conversationQueue.Dequeue();
+                    continue;
+                }
+
+                string rawLine = conversation.CurrentLine();
+
+                //Dont show any blank lines or run any logic
+                if (string.IsNullOrWhiteSpace(rawLine))
+                {
+                    TryAdvanceConversation(currentConversation);
+                    continue;
+                }
+                  
+                DIALOGUE_LINE line = DialogueParser.Parse(rawLine);
 
                 if (logicalLineManager.TryGetLogic(line, out Coroutine logic))
                 {
@@ -85,7 +111,22 @@ namespace DIALOGUE
                         CommandManager.instance.StopAllProcesses();
                     }
                 }
+
+                TryAdvanceConversation(currentConversation);
             }
+
+            process = null; 
+        }
+
+        private void TryAdvanceConversation(Conversation conversation)
+        {
+            conversation.IncrementProgress();
+
+            if (conversation != conversationQueue.top)
+                return;
+
+            if (conversation.HasReachedEnd())
+                conversationQueue.Dequeue();
         }
 
 
