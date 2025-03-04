@@ -17,12 +17,7 @@ public class InputPanel : MonoBehaviour
     public string lastInput {  get; private set; } = string.Empty;  
     public bool isWaitingOnUserInput { get; private set; }
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //awake nauna pero pinalitan kasi for some reson nageerror ung ccg
     void Start()
     {
         cg = new CanvasGroupController(this, canvasGroup);
@@ -33,6 +28,10 @@ public class InputPanel : MonoBehaviour
 
         inputField.onValueChanged.AddListener(OnInputChanged);
         acceptButton.onClick.AddListener(OnAcceptInput);
+    }
+    private void Awake()
+    {
+        instance = this;
     }
 
     public void Show(string title)

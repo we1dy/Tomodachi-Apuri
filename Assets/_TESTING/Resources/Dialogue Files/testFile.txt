@@ -1,51 +1,16 @@
-PlaySong("Happy")
-SetLayerMedia(background counselor_bg)
 
-narrator "What is your name?"
 
-input "Input your name:"
-
-narrator "Nice to meet you, <input>! I have a question for you, if you don't mind."
-
-enter MC as <input> "Sure, I don't mind."
-
-narrator "Do you like Jayce or Viktor?"
-
-choice "Which character do you like the most?"
+choice "Where do you go?"
 {
-	-Jayce
-		enter MC as <input> "Definitely Jayce."
-		Load(Chapter_Canteen -enqueue true)
-	-Viktor
-		enter MC as <input> "Viktor all the way!"
-		Load(Chapter_Hallway)
-	-I love both Jayce and Viktor
-		enter MC as <input> "Need I say more?"
-		enter MC as <input> "I rest my case then."
-		Hide(MC)
-		enter Elara "Hm. . .JayVik or IwaOi?"
-		Hide(Elara)
-		choice "Choose your favourite ship."
-		{
-			-IwaOi
-				enter MC as <input> "Obviously IwaOi! They were my first otp and will always will be."
-				Hide(MC)
-			-JayVik
-				enter MC as <input> "JayVik grew onto me so fast, plus cosmic fated soul partners for the win!!"
-				Hide(MC)
-		}
-		enter Elara "This just proves my point that you're a total geek about this."
-		Hide(Elara)
-		enter MC as <input> "Hey! What's wrong about that?"
-		Hide(MC)
-
+	-The Forest
+		$choice = Forest
+	-The Cave
+		$choice = Cave
 }
 
-Hide(MC)
-HideDB(-spd 0.5)
-wait(1)
-ClearLayerMedia(background), wait(1)
-StopSong()
-wait(1)
+if ($choice == Cave)
+{
+	narrator "To the cave we go!"
+}
 
-
+narrator "What are we waiting for, let's go to the $choice!"

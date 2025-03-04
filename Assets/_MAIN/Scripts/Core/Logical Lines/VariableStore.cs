@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class VariableStore
 {
     private const string DEFAULT_DATABASE_NAME = "Default";
-    private const char DATABASE_VARIBALE_RELATIONAL_ID = '.';
+    public const char DATABASE_VARIBALE_RELATIONAL_ID = '.';
+    public static readonly string REGEX_VARIABLE_IDS = @"[!]?\$[a-zA-Z0-9_.]+";
+    public const char VARIABLE_ID = '$';
     public class Database
     {
         public Database(string name)
@@ -121,6 +124,15 @@ public class VariableStore
         string variableName = parts.Length > 1 ? parts[1] : parts[0];
 
         return (parts, db, variableName);   
+    }
+
+    public static bool HasVariable(string name)
+    {
+        string[] parts = name.Split(DATABASE_VARIBALE_RELATIONAL_ID);
+        Database db = parts.Length > 1 ? GetDatabase(parts[0]) : defaultDatabase;
+        string variableName = parts.Length > 1 ? parts[1] : parts[0];
+
+        return db.variables.ContainsKey(variableName);  
     }
 
     public static void RemoveVariable(string name)
