@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: c926bdd4f734e084bb0a8154941255f4
+guid: b32de5da8c88c8541a3bb1c9388cae39
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4426933547838425834
-    second: overlay_0
-  - first:
-      213: 362434342028301353
-    second: overlay_1
-  - first:
-      213: 4447117151435667556
-    second: overlay_2
+      213: -2966200626249415253
+    second: 11_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 1681, z: 0, w: 86}
+  spriteBorder: {x: 49, y: 50, z: 49, w: 50}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -132,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: overlay_0
+      name: 11_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1743
-        width: 1080
-        height: 69
+        x: 49
+        y: 49
+        width: 602
+        height: 402
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,52 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 615b4d4a46f5092c0800000000000000
-      internalID: -4426933547838425834
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overlay_1
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 1730
-        width: 356
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 924dff22d10a70500800000000000000
-      internalID: 362434342028301353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overlay_2
-      rect:
-        serializedVersion: 2
-        x: 711
-        y: 1730
-        width: 341
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 468bed5cc7557bd30800000000000000
-      internalID: 4447117151435667556
+      spriteID: ba5ccdbfe30f5d6d0800000000000000
+      internalID: -2966200626249415253
       vertices: []
       indices: 
       edges: []
@@ -211,9 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      overlay_0: -4426933547838425834
-      overlay_1: 362434342028301353
-      overlay_2: 4447117151435667556
+      11_0: -2966200626249415253
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
