@@ -17,7 +17,7 @@ namespace DIALOGUE
         private TextArchitect architect => conversationManager.architect;
 
         public bool skip { get; set; } = false;
-        private float speed { get; set; } = 1f;
+        public float speed { get; set; } = 1f;
 
         public bool isOn => co_running != null;
         private Coroutine co_running = null;

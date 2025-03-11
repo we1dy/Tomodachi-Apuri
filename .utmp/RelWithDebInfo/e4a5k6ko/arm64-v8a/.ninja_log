@@ -1,12 +1,23 @@
 # ninja log v5
 48	7872	7618574538715173	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7ca2010f7463ee5f
+8280	15169	7618574614552928	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	31c02fa4635928d5
 44	8280	7618574543391795	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b050669f268b214c
 60	8708	7618574548603365	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	50728b14e53ac55e
+7875	14686	7618574610335615	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	7d7e2f5dd8b5a901
 2	9458	7618574555103440	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	91fbfc2e55fabb97
 64	11027	7618574571651460	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	809add0fe36ff1af
 8710	11956	7618574580817164	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	4fc29e8195b0b0
 41	12386	7618574585733100	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	ecdcbac310fb5df5
-7875	14686	7618574610335615	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	7d7e2f5dd8b5a901
-8280	15169	7618574614552928	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	31c02fa4635928d5
 11956	16888	7618574617067955	W:/Unity stuffz/My project/Tomodachi Apuri/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/e4a5k6ko/obj/arm64-v8a/libswappywrapper.so	e85fbbf0f39d9771
 15169	20577	7618574658274439	W:/Unity stuffz/My project/Tomodachi Apuri/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/e4a5k6ko/obj/arm64-v8a/libgame.so	32e4dc3dae44f2f8
+24	3609	7633935178160459	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7ca2010f7463ee5f
+21	3769	7633935180309234	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b050669f268b214c
+18	3967	7633935183627303	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	50728b14e53ac55e
+15	4165	7633935185546572	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	91fbfc2e55fabb97
+28	4538	7633935189604422	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	809add0fe36ff1af
+9	4788	7633935192338437	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	ecdcbac310fb5df5
+3968	4975	7633935194047453	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	4fc29e8195b0b0
+3710	5288	7633935197318975	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	7d7e2f5dd8b5a901
+3770	5392	7633935198388357	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	31c02fa4635928d5
+4975	6240	7633935206993517	W:/Unity stuffz/My project/Tomodachi Apuri/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/e4a5k6ko/obj/arm64-v8a/libswappywrapper.so	e85fbbf0f39d9771
+5392	6590	7633935207889913	W:/Unity stuffz/My project/Tomodachi Apuri/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/e4a5k6ko/obj/arm64-v8a/libgame.so	32e4dc3dae44f2f8

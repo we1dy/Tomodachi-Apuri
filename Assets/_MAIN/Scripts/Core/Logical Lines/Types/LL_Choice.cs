@@ -34,6 +34,13 @@ namespace DIALOGUE.LogicalLines
             Conversation newConversation = new Conversation(selectedChoice.resultLines);
             DialogueSystem.instance.conversationManager.conversation.SetProgress(data.endingIndex);
             DialogueSystem.instance.conversationManager.EnqueuePriority(newConversation);
+
+            AutoReader autoReader = DialogueSystem.instance.autoReader;
+            if (autoReader != null && autoReader.isOn && autoReader.skip)
+            {
+                if (VN_Configuration.activeConfig != null && !VN_Configuration.activeConfig.continueSkippingAfterChoice)
+                    autoReader.Disable();
+            }
         }
 
         public bool Matches(DIALOGUE_LINE line)
