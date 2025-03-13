@@ -3,7 +3,6 @@ HideDB()
 wait(1)
 
 PlaySong("Calm")
-SetLayerMedia(background hallway_bg)
 
 wait(1)
 
@@ -23,6 +22,7 @@ narrator "MC was incredibly tired, going home was all they could think about. Th
 
 MC.SetSprite(mc_panic -l 1 -spd 0.75)
 MC "Wait. . . . ."
+MC.Animate(Hop)
 PlayVoice(Exclamation)
 MC [0:mc_body,1:mc_panic] "I have to meet up with Elara!! {wa 1}I'm going to be late!!!"
 

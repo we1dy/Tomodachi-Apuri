@@ -15,6 +15,8 @@ namespace COMMANDS
         private static string[] PARAM_SMOOTH => new string[] { "-sm", "-smooth" };
         private static string PARAM_XPOS => "-x";
         private static string PARAM_YPOS => "-y";
+        private static string PARAM_ANIMATE_STATE => "-state";
+        private static string PARAM_ANIMATE => "-animate";
 
         new public static void Extend(CommandDatabase database)
         {
@@ -22,7 +24,7 @@ namespace COMMANDS
             database.AddCommand("movecharacter", new Func<string[], IEnumerator>(MoveCharacter));
             database.AddCommand("show", new Func<string[], IEnumerator>(ShowAll));
             database.AddCommand("hide", new Func<string[], IEnumerator>(HideAll));
-            database.AddCommand("sort", new Action<string[]>(Sort)); 
+            database.AddCommand("sort", new Action<string[]>(Sort));
 
             //add commands to characters
             CommandDatabase baseCommands = CommandManager.instance.CreateSubDatabase(CommandManager.DATABASE_CHARACTERS_BASE);
@@ -32,6 +34,7 @@ namespace COMMANDS
             baseCommands.AddCommand("setpriority", new Action<string[]>(SetPriority));
             baseCommands.AddCommand("highlight", new Func<string[], IEnumerator>(Highlight));
             baseCommands.AddCommand("unhighlight", new Func<string[], IEnumerator>(Unhighlight));
+            baseCommands.AddCommand("animate", new Func<string[], IEnumerator>(Animate));
 
             CommandDatabase spriteCommands = CommandManager.instance.CreateSubDatabase(CommandManager.DATABASE_CHARACTERS_SPRITE);
             spriteCommands.AddCommand("setsprite", new Func<string[], IEnumerator>(SetSprite));
@@ -46,7 +49,7 @@ namespace COMMANDS
             bool immediate = false;
             float speed;
 
-            if (character == null || data.Length <2)
+            if (character == null || data.Length < 2)
                 yield break;
 
             //grab extra parameters
@@ -58,17 +61,17 @@ namespace COMMANDS
             parameters.TryGetValue(new string[] { "-l", "-layer" }, out layer, defaultValue: 0);
 
             //try to get transition speed
-            bool specifiedSpeed = parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 0.1f); 
+            bool specifiedSpeed = parameters.TryGetValue(PARAM_SPEED, out speed, defaultValue: 0.1f);
 
             //immediate transition or not
             if (!specifiedSpeed)
                 parameters.TryGetValue(PARAM_IMMEDIATE, out immediate, defaultValue: true);
 
             //run the logic
-            Sprite sprite = character.GetSprite(spriteName);        
+            Sprite sprite = character.GetSprite(spriteName);
 
             if (sprite == null)
-                yield break;    
+                yield break;
 
             if (immediate)
             {
@@ -77,7 +80,7 @@ namespace COMMANDS
             else
             {
                 CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.SetSprite(sprite, layer); });
-                yield return character.TransitionSprite(sprite, layer, speed);  
+                yield return character.TransitionSprite(sprite, layer, speed);
             }
         }
 
@@ -195,7 +198,7 @@ namespace COMMANDS
         {
             List<Character> characters = new List<Character>();
             bool immediate = false;
-            float speed = 1f; 
+            float speed = 1f;
 
             foreach (string s in data)
             {
@@ -249,10 +252,10 @@ namespace COMMANDS
             Character character = CharacterManager.instance.GetCharacter(data[0]);
 
             if (character == null)
-                yield break;    
+                yield break;
 
             bool immediate = false;
-            var parameters = ConvertDataToParameters(data,startingIndex: 0);
+            var parameters = ConvertDataToParameters(data, startingIndex: 0);
 
             parameters.TryGetValue(new string[] { "-i", "immediate" }, out immediate, defaultValue: false);
 
@@ -299,15 +302,15 @@ namespace COMMANDS
                 return;
 
             if (!int.TryParse(data[1], out priority))
-                priority = 0;       
+                priority = 0;
 
-            character.SetPriority(priority);    
+            character.SetPriority(priority);
         }
 
         public static IEnumerator Highlight(string[] data)
         {
             //format: setsprite(chara sprite)
-            Character character = CharacterManager.instance.GetCharacter(data[0], createIfDoesNotExist: false) as Character;    
+            Character character = CharacterManager.instance.GetCharacter(data[0], createIfDoesNotExist: false) as Character;
 
             if (character == null)
                 yield break;
@@ -323,7 +326,7 @@ namespace COMMANDS
                 character.HighLight(immediate: true);
             else
             {
-                CommandManager.instance.AddTerminationActionToCurrentProcess(() => {  character?.HighLight(immediate: true); });
+                CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.HighLight(immediate: true); });
                 yield return character.HighLight();
             }
         }
@@ -350,6 +353,28 @@ namespace COMMANDS
                 CommandManager.instance.AddTerminationActionToCurrentProcess(() => { character?.UnHighLight(immediate: true); });
                 yield return character.UnHighLight();
             }
+        }
+
+        public static IEnumerator Animate(string[] data)
+        {
+            Character character = CharacterManager.instance.GetCharacter(data[0], createIfDoesNotExist: false) as Character;
+
+            string animate;
+            bool state;
+
+            if (character == null || data.Length < 2)
+                yield break;
+
+            var parameters = ConvertDataToParameters(data, startingIndex: 1);
+
+            parameters.TryGetValue(PARAM_ANIMATE, out animate);
+
+            parameters.TryGetValue(PARAM_ANIMATE_STATE, out state, defaultValue: true);
+
+            if (state)
+                character.Animate(animate, state);
+            else
+                character.Animate(animate);
         }
     }
 }
