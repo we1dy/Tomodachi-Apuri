@@ -3,8 +3,8 @@ guid: 87583125349f2df48acecb0ac98287a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8751556734277289467
-    second: hallway_bg 1_0
+      213: -7956836487668041272
+    second: hallway_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hallway_bg 1_0
+      name: hallway_bg_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf5864a6b76c37970800000000000000
-      internalID: 8751556734277289467
+      spriteID: 8c9fda02f53a39190800000000000000
+      internalID: -7956836487668041272
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hallway_bg 1_0: 8751556734277289467
+      hallway_bg_0: -7956836487668041272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,3 +1,13 @@
+narrator "What will be your name?"
+
+input "Input your name:"
+
+HideUI(-spd 0.5)
+
+[wait]
+
+ShowUI()
+
 PlaySong("calm_bg")
 PlayAmbience(nature_bg -v 5)
 
@@ -5,15 +15,17 @@ SetLayerMedia(background gate_bg)
 
 narrator "The morning air is crisp, carrying the faint scent of damp pavement. The campus gates loom ahead, familiar yet intimidating. A soft breeze rustles the leaves above, casting dappled shadows on the ground."
 
-PlayAmbience(University)
-
 narrator "The faint hum of distant chatter and the occasional honk of a car fill the air, but it all feels muffled, as if you’re standing at the edge of a dream."
 
-CreateCharacter(MC) 
+SetLayerMedia(background 1 narrator_bg)
+CreateCharacter(MC)
+ClearLayerMedia(background 1 narrator_bg)
 
 narrator "You stand at the gates, your chest tightening as you gaze at the familiar buildings. So many memories linger here."
 
-SetLayerMedia(background umak_bg)
+SetLayerMedia(background admin_bg)
+
+PlayAmbience(University)
 
 narrator "That building over there is where you aced your first-ever quiz. And that spot by the bleachers—that's where you used to hang out after class, laughing with friends as the sun dipped below the horizon."
 
@@ -25,9 +37,13 @@ playsfx(phone_alarm_sfx -loop true)
 
 narrator "The sound of an alarm from your phone snaps you out of your thoughts. You fumble to pull it out of your pocket, the screen lighting up with the time."
 
+playsfx(Suspense)
 MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_panic -l 1)
 MC.Animate(Hop)
-enter MC "Wait... is that the time?!"
+
+SetLayerMedia(background 1 narrator_bg)
+MC as  <input> "Wait... is that the time?!"
+ClearLayerMedia(background 1 narrator_bg)
 
 wait(1)
 
@@ -46,11 +62,13 @@ narrator "Panic surges through you as you realize you’re about to be late for 
 StopAmbience()
 stopsfx(running_sfx)
 
-ClearLayerMedia(background -blend radialClock), wait(1)
+playsfx(Clock -loop true)
+ClearLayerMedia(background -blend radialClock -spd 0.5), wait(1)
 
-SetLayerMedia(background canteen_bg -blend radialClock)
+SetLayerMedia(background canteen_bg -blend radialClock -spd 0.5), wait(3)
 
 PlayAmbience(cafeteria_bg -v 5)
+stopsfx(Clock)
 
 narrator "The day passes in a blur of lectures, introductions, and the overwhelming din of campus life. By the time the last class ends, your mind feels like a jumbled mess of fragments—snippets of conversations, half-remembered instructions, and the lingering echo of the professor’s voice."
 
@@ -63,7 +81,7 @@ narrator "A heavy fatigue settles over you as you step out of the classroom. The
 
 stopsfx(stomach-growl_sfx)
 
-narrator "The line for food snakes out the door, and you sigh as you join the queue. The air is thick with the smell of fried food and the hum of chatter. You stare absently ahead, your mind still buzzing from the day’s events."
+narrator "The line is long, and you sigh as you join the queue. The air is thick with the smell of fried food and the hum of chatter. You stare absently ahead, your mind still buzzing from the day’s events."
 
 StopSong()
 
@@ -156,9 +174,11 @@ Hide(MC)
 
 enter Elara "But nothing. Next time, don’t assume I can’t handle myself."
 
+playsfx(running_sfx)
 Elara.Animate(WalkAway)
 Hide(Elara)
 narrator "Without waiting for a response, she grabs her things and walks away, leaving you rooted to the spot. The canteen seems quieter now, as if everyone is holding their breath. You feel the weight of their stares, but you can’t bring yourself to care."
+stopsfx(running_sfx)
 
 MC.Show()
 MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_curious -l 1)
@@ -183,11 +203,13 @@ narrator "The office is tucked away in a quieter wing of the campus, far from th
 
 narrator "What if they say you’re not eligible? The thought makes your chest tighten, but with a deep breath, you push the door open."
 
-playsfx(door-opening_sfx)
+playsfx(door-opening_sfx -i true)
 
 SetLayerMedia(background counselor_bg)
 
 stopsfx(door-opening_sfx)
+
+playsfx(Busy Office Background Noise -loop true)
 
 narrator "Inside, the room is warm and inviting, with potted plants in every corner and a faint aroma of lavender in the air."
 
@@ -212,11 +234,17 @@ Hide(Counselor -spd 0.5)
 
 enter MC "That sounds… really helpful. How does it work?"
 
-Counselor "Well, we match you with a mentor based on your goals and interests. We also consider personality and how well you might connect. You’ll be assigned a mentor from the second or third year who will help you adjust. They’re not just there for academics—they’re also a friend, someone to talk to."
+Hide(MC -spd 0.5)
+
+enter Counselor "Well, we match you with a mentor based on your goals and interests. We also consider personality and how well you might connect. You’ll be assigned a mentor from the second or third year who will help you adjust. They’re not just there for academics—they’re also a friend, someone to talk to."
+
+Hide(Counselor -spd 0.5)
+
+MC.Show()
 
 narrator "You nod slowly, the knot in your stomach loosening slightly. It sounds promising, but you can’t shake your lingering nervousness."
 
-enter MC "And when would I meet my mentor?"
+MC "And when would I meet my mentor?"
 
 Hide(MC -spd 0.5)
 
@@ -230,11 +258,13 @@ ClearLayerMedia(background -blend diagonal), wait(1)
 
 SetLayerMedia(background hallway_bg -blend diagonal)
 
+stopsfx(Busy Office Background Noise)
+
 MC.Show()
-playsfx(walking_sfx -v 0.3 -loop true)
+playsfx(walking_sfx -loop true)
 MC.Animate(WalkIn)
 
-narrator "As you leave the office, the hallway is quiet, the only sound is the soft click of your shoes against the floor." 
+narrator "As you leave the office, the hallway is quiet, the only sound is the soft click of your shoes against the floor."  
 
 wait(1)
 
