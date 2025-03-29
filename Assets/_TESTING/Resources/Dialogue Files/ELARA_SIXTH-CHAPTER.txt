@@ -1,0 +1,249 @@
+HideDB()
+SetLayerMedia(background hallway_bg -blend diagonal -spd 0.5)
+PlayAmbience(University -v 5 -loop true)
+
+wait(1)
+
+narrator "It had been days since the storm, and Elara hadn’t been the same since. {wa 0.75}No sarcastic remarks,{wa 0.75} no teasing{wa 0.75}—just silence."
+
+narrator "She still responds when spoken to, but there was a distance between her words, {wa 0.75}an unclimbable wall between her and you, just like when you first met."
+
+narrator "At first, {wa 0.75}you tried to give her space. Maybe she just needed time. {wa 0.75}But as the days stretched on, the weight of her absence—despite being right there—became <i>unbearable</i>. So today, you decide enough is enough."
+
+CreateCharacter(MC)
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_angry -l 1)
+
+narrator "You wait outside her classroom, leaning against the wall as students begin to trickle out. Laughter and chatter fill the hallway, but your focus is locked on the door. Then, {wa 0.75}finally, {wa 0.75}she appears."
+
+Hide(MC)
+
+CreateCharacter(Elara)
+
+narrator "Elara steps out, {wa 0.75}her gaze downcast, as if she’s trying to make herself smaller. She barely glances up before turning in the opposite direction."
+
+Hide(Elara)
+
+MC.Show()
+MC.SetSprite(mc_concerned -l 1)
+
+MC "Hey, Elara."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_body -l 0), Elara.SetSprite(elara_serious -l 1)
+
+narrator "She stiffens but doesn’t stop, her steps quick and deliberate. {wa 0.75}You move swiftly, {wa 0.75}blocking her path before she can escape. She exhales sharply, her guarded expression tightening as her eyes flicker to yours—{wa 0.75}just for a moment—before looking away."
+
+PlayVoice(female_sighs2_sfx)
+Elara "What do you want?"
+
+Hide(Elara)
+
+enter MC "<i><b>You.</b></i> {wa 0.75}To talk to me."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_ch -l 1)
+PlayVoice(female_sighs_sfx2)
+
+narrator "She scoffs, looking away."
+
+Elara "There’s <i>nothing</i> to talk about."
+
+Hide(Elara)
+
+MC.Show()
+MC.SetSprite(mc_angry -l 1)
+MC "Really? {wa 0.75}Because for the past few days, {wa 0.75}you’ve been avoiding me like I don’t exist."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_hurt -l 1)
+
+Elara "I’m not avoiding you."
+
+Hide(Elara)
+
+enter MC "Then look at me."
+
+Hide(MC)
+
+Elara.Show()
+
+narrator "She hesitates—{wa 0.75}just for a second—but it’s enough. {wa 0.75}Her fingers tighten around the strap of her bag, her usual confidence cracking at the edges."
+
+Hide(Elara)
+
+MC.Show()
+MC.SetSprite(mc_concerned -l 1)
+enter MC "You’ve been acting weird ever since the storm. Did I. . . {wa 0.75}do something wrong?"
+
+Hide(MC)
+
+enter Elara "N-no. {wa 0.75}You didn’t do anything."
+
+Hide(Elara)
+
+enter MC "Then why are you shutting me out?"
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_hurt -l 1)
+
+Elara "I don’t want to talk about this here."
+
+Hide(Elara)
+
+enter MC "Then let’s go somewhere else."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_ch -l 1)
+
+narrator "Elara exhales sharply, glancing around the hallway. {wa 0.75}Students are still passing by, their curious gazes flickering toward the two of you. With an exasperated sigh, she grabs your wrist."
+
+Elara "Fine. Just—{wa 0.75}Just come with me."
+Elara.Animate(WalkAway)
+Hide(Elara)
+
+playsfx(running_sfx)
+
+narrator "Elara walks briskly, her grip on your wrist firm yet oddly gentle, as if she’s afraid you might slip away. Her strides are long, and you struggle slightly to keep up, her height giving her an advantage. Still,{wa 0.75} you push yourself to match her pace."
+
+stopsfx(running_sfx)
+
+playsfx(door-opening_sfx)
+
+narrator "The walk isn’t far. {wa 0.75}Elara stops abruptly in front of a door, her hand gripping yours tightly. It’s a deserted classroom. Without a word, she pushes the door open and steps inside, pulling you along with her."
+narrator "The room feels frozen in time, silent except for the faint creak of the door closing behind you."
+
+SetLayerMedia(background classroom_bg -blend diagonal -spd 1)
+
+Stop(Ambience)
+PlaySong("sad_bg4" -loop true)
+
+Elara.Show()
+Elara.SetSprite(elara_serious -l 1)
+
+narrator "Elara stops, arms crossed, staring at the ground. For a moment, neither of you speak. The tension between you is palpable, heavy with unspoken words."
+
+narrator "Finally, {wa 0.75}she whispers,"
+
+PlaySong("sad_bg2" -loop true)
+
+Elara "<i><b>I hate this.</b></i>"
+
+Hide(Elara)
+
+enter MC "Hate what?"
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_hurt -l 1)
+
+Elara "This feeling. I hate how—{wa 0.75}how that storm made me feel. How vulnerable it made me. And I hate that you saw me like that."
+
+Hide(Elara)
+
+enter MC "E-Elara, that’s—{wa 0.75}"
+
+Hide(MC)
+
+enter Elara "Just let me finish. {wa 0.75}I’ve spent so long keeping myself together, making sure no one sees me as weak."
+
+Elara "And then. . .{wa 0.75}you come along, and suddenly, I can’t keep up the act anymore. {wa 0.75}It’s frustrating.<i><b>You’re</b></i>{wa 0.75} frustrating."
+
+Hide(Elara)
+
+MC.Show()
+
+narrator "You stare at her, heart pounding. Is it because—"
+
+MC "So. . . {wa 0.75}what? {wa 0.75}You’re pushing me away because I make you feel {wa 0.75} something?"
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_hurt -l 1)
+
+Elara "I— {wa 0.75}I don’t know how to deal with this, okay?  {wa 0.75}I don’t know how to deal with <i><b>you.</b></i>"
+
+Hide(Elara)
+
+enter MC "Elara, you don’t have to deal with it alone."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_surprised2-l 1)
+
+narrator "She looks up, and for the first time, the walls she’s built around herself finally give way, truly seeing Elara for the first time."
+
+Hide(Elara)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_ch -l 1)
+
+MC "I just want <i><b>you</b></i>—{wa 0.75}however you are. And if you need time to figure things out, {wa 0.75}I’ll wait."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_hurt -l 1)
+
+narrator "Elara swallows hard, her breath uneven.  {wa 0.75}Her eyes flicker to yours, then away, as if she’s wrestling with something deep inside."
+
+Elara "You’re an idiot,"
+Elara ". . .{wa 0.75}I think I like you, {wa 0.75}and that absolutely terrifies me."
+
+Hide(Elara)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_concerned -l 1)
+StopSong("sad_bg4")
+
+narrator "Your chest tightens at her words.  {wa 0.75}You step closer, leaving just enough space for her to pull away if she wants to.  {wa 0.75}She doesn’t."
+
+PlaySong("heartfelt_bg" -loop true)
+
+MC "Elara, {wa 0.75}I think I like you too."
+
+Hide(MC)
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/elara_confession")
+
+narrator "She huffs, rolling her eyes,  {wa 0.75}but her lips twitch, betraying the smile she’s trying to suppress. You take another step closer, your hand reaching out— {wa 0.75}not for hers this time, but for her face."
+
+narrator "She freezes,  {wa 0.75}her breath catching, {wa 0.75}but she doesn’t pull away. Her eyes widen slightly, searching yours for reassurance."
+
+narrator "Gently, you cup her cheek,  {wa 0.75}your thumb brushing against her skin. She leans into the touch,  {wa 0.75}her eyes fluttering shut for a brief moment, as if savoring the warmth of your hand."
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/elara_confession2")
+
+narrator "When she opens her eyes again, they’re softer,  {wa 0.75}more vulnerable than you’ve ever seen them."
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/elara_confession3")
+
+narrator "You tilt your head, your forehead resting against hers. {wa 0.75}The world around you fades, leaving only the two of you, breathing in sync. The weight of unspoken words lifts, and the distance between you disappears."
+
+narrator "For a moment, neither of you speaks. The silence is comfortable,  {wa 0.75}intimate,  {wa 0.75}filled with everything you’ve both been too afraid to say. Then, Elara exhales, her voice barely above a whisper."
+
+Elara "You’re impossible, you know that?"
+
+narrator "She huffs, but there’s no bite to it. Instead,  {wa 0.75}she leans in just a little closer, her forehead still pressed against yours. Her hand reaches up,  {wa 0.75}her fingers brushing against yours where they rest on her face. It’s a small gesture, but it speaks volumes."
+
+narrator "The two of you stay like that for what feels like forever, the sun dipping below the horizon and painting the sky in shades of orange and pink. The world feels quiet,  {wa 0.75}peaceful, {wa 0.75} as if it’s holding its breath just for you."
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/elara_confession4")
+
+narrator "The future is uncertain, but for the first time,  {wa 0.75}it feels full of possibility. And as you look at Elara, her smile glowing in the fading light, you know that whatever comes next,  {wa 0.75}you’ll face it together."
+
+StopSong("calm2_bg")
+
+HideUI(-spd 0.5)

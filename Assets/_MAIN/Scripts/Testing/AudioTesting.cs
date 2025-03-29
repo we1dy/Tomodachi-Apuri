@@ -33,7 +33,7 @@ namespace TESTING
 
             MC.Animate("Hop");
             AudioManager.instance.PlayVoice("Audio/Voices/exclamation");
-            yield return MC.Say("MC\"Oh!{wa 1}. I'll turn it off.\"");
+            yield return MC.Say("MC\"Oh!{wa 0.75}. I'll turn it off.\"");
 
         }
 
@@ -49,7 +49,7 @@ namespace TESTING
             GraphicPanelManager.instance.GetPanel("background").GetLayer(0, true).SetTexture("Graphics/BG Images/canteen_bg");
 
             yield return MC.Say("narrator\"Elara is currently at the canteen, hoping to get an early lunch before the inevitable rush that comes during the afternoon. \"");
-            yield return MC.Say("narrator\"What she thought to be a peaceful reprieve from noisy classmates. . . {wa 1}well, let's just say what happened next comes to be a wonderful surprise.\"");
+            yield return MC.Say("narrator\"What she thought to be a peaceful reprieve from noisy classmates. . . {wa 0.75}well, let's just say what happened next comes to be a wonderful surprise.\"");
 
             Character_Sprite Elara = CreateCharacter("Elara") as Character_Sprite;
             Elara.SetSprite(Elara.GetSprite("elara_body"), 0);
@@ -144,7 +144,7 @@ namespace TESTING
             Elara.Animate("Shiver");
             Elara.SetSprite(Elara.GetSprite("elara_body"), 0);
             Elara.SetSprite(Elara.GetSprite("elara_smiling"), 1);
-            yield return Elara.Say("Elara\"Pft!{wa 1} Sorry! I couldn't help it.\"");
+            yield return Elara.Say("Elara\"Pft!{wa 0.75} Sorry! I couldn't help it.\"");
 
             Elara.Hide();
 

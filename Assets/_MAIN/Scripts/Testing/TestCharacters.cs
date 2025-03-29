@@ -59,7 +59,7 @@ namespace TESTING
 
             Elara.TransitionSprite(Elara.GetSprite("elara_uncomfortable"), layer: 1);
             Elara.TransitionSprite(Elara.GetSprite("elara_body"));
-            yield return Elara.Say("Elara\"Oh. . .{wa 1}It’s you.\"");
+            yield return Elara.Say("Elara\"Oh. . .{wa 0.75}It’s you.\"");
             yield return Elara.Hide();
 
             MC.Show();
@@ -71,7 +71,7 @@ namespace TESTING
             Elara.Show();
             Elara.TransitionSprite(Elara.GetSprite("elara_ch"), layer: 1);
             Elara.TransitionSprite(Elara.GetSprite("elara_body"));
-            yield return Elara.Say("Elara\"Ha! As if.{wa 1} No need to be fake.\"");
+            yield return Elara.Say("Elara\"Ha! As if.{wa 0.75} No need to be fake.\"");
             yield return Elara.Hide();
 
             MC.Show();
