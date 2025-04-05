@@ -1,0 +1,303 @@
+PlaySong("tense_bg" -loop true)
+SetLayerMedia(background back_bg -blend diagonal -spd 0.5)
+
+playsfx(running_sfx -v 3 -loop true)  
+
+CreateCharacter(MC)
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_panic -l 1 -spd 0.75)
+ 
+narrator "Your heart pounds in your chest as you sprint across campus, your phone clutched tightly in your hand."
+
+narrator "Oliver’s text is short and urgent: {wa 0.75} <i>Need help. Meet me at the walkway behind the entrance. Now.</i>"
+
+narrator "The lack of context sends your mind spiraling into worst-case scenarios. {wa 0.75}<i><b>Is he hurt? {wa 0.75}In trouble?</b></i> You don’t know, {wa 0.75}but you aren’t about to waste time asking questions."
+
+narrator "You run as fast as your legs can carry you, weaving through students and dodging obstacles."
+
+Hide(MC)
+
+SetLayerMedia(background back2_bg -blend diagonal -spd 0.75)  
+
+narrator "As you turn the corner toward the walkway, you spot Oliver’s tall figure in the distance. {wa 0.75}His back is turned to you, and he seems to be hunched over, {wa 0.75}his arms cradling something." 
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "Relief washes over you at the sight of him standing there, seemingly unharmed, {wa 0.75}but your worry quickly shifts to confusion."
+
+PlaySong("sad_bg" -loop true)
+
+MC as You "<i><b>Oliver!!!</b></i>"
+
+Hide(MC)
+
+CreateCharacter(Oliver)
+
+narrator "He turns around, and your eyes immediately fall on the trembling creature in his arms."
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/OLIVER/cat")
+
+stopsfx(running_sfx) 
+
+narrator ""It’s a cat—{wa 0.75}a grubby little thing, its fur matted with dirt and tangled into clumps."
+
+HideDB(-spd 0.1)
+
+wait(1)
+
+ShowDB()
+
+ClearLayerMedia(cinematic)
+
+narrator "Oliver’s expression is a mix of concern and relief as he holds the animal gently, his large hands cradling it like it’s the most precious thing in the world."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "You skid to a stop in front of him, panting heavily."
+
+MC as You "What the—{wa 0.75}<i><b>Oliver</b></i>,{wa 0.75} what’s going on?{wa 0.75} I thought something happened to you!"
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_shy -l 1 -spd 0.75)
+
+narrator "Oliver shifts awkwardly, his gaze dropping to the cat in his arms."
+
+Oliver "I. . .{wa 0.75}uh, found this little guy being bullied by some other cats outside the school.{wa 0.75} I couldn’t just leave him there, so I brought him inside."
+
+Oliver "I didn’t know what else to do, so I. . .{wa 0.75}texted you."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_tired -l 1 -spd 0.75)
+
+narrator "You sag in relief, your shoulders dropping as the tension leaves your body."
+
+MC.SetSprite(mc_angry -l 1 -spd 0.75)
+
+MC as You "Oh my gosh, Oliver.{wa 0.75} You scared me half to <i>death</i>. {wa 0.75}I thought you were hurt or something!"
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_shy -l 1 -spd 0.75)
+
+narrator "He averts his eyes, his expression sheepish."
+
+Oliver "I'm sorry.{wa 0.75} I didn’t mean to worry you."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_tired -l 1 -spd 0.75)
+
+MC as You "<i>You didn’t mean to worry me?</i>"
+
+MC.SetSprite(mc_angry -l 1 -spd 0.75)
+
+MC as You "You send me a text like that with no context, and you didn’t mean to worry me? Oliver, {wa 0.75}you can’t just—{wa 0.75}<i>ugh!</i>"
+
+narrator "You throw your hands up in exasperation, but your scolding quickly turns into a full-blown lecture."
+
+MC as You "And what were you thinking? {wa 0.75}Picking up a street cat like that?"
+
+MC as You "It could’ve scratched you {wa 0.75}or bitten you! {wa 0.75}What if it had rabies or something? {wa 0.75}You need to be more careful!"
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_sad -l 1 -spd 0.75)
+
+narrator "Oliver’s face falls,{wa 0.75} and he looks down at the ground, {wa 0.75}his shoulders slumping."
+
+narrator "He doesn’t say a word, but the sad, {wa 0.75}puppy-like expression on his face {wa 0.75}is enough to make you feel like the worst person in the world."
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/OLIVER/cat")
+
+playsfx(cat_meow)
+
+narrator "The cat in his arms lets out a soft meow, as if sensing the tension."
+
+Hide(Oliver)
+
+ClearLayerMedia(cinematic)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_tired -l 1 -spd 0.75)
+
+StopSong("tense_bg")
+
+PlaySong("calm3_bg" -loop true)
+
+PlayVoice(female_sighs2_sfx -p 0.9)
+
+narrator "You sigh, {wa 0.75}running a hand through your hair as you try to calm the storm of emotions swirling inside you."
+
+narrator "Your heart is still racing from the adrenaline of sprinting across campus, and the mix of relief, frustration, and guilt leaves you feeling utterly drained."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_sad -l 1 -spd 0.75)
+
+narrator "You glance at Oliver, {wa 0.75}who is still standing there with the cat cradled in his arms, {wa 0.75}looking like a kicked puppy."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "The sight makes your chest tighten, and you can’t help but feel a pang of regret for snapping at him."
+
+playsfx(cat_meow)
+
+narrator "The cat lets out another soft meow, its wide,{wa 0.75} pleading eyes looking up at you as if it, too,{wa 0.75} is begging you to go easy on Oliver."
+
+narrator "You can’t stay mad—{wa 0.75}not at him,{wa 0.75} and certainly not at the poor creature he’d gone out of his way to save."
+
+PlayVoice(female_sighs2_sfx -p 0.9)
+
+narrator "Taking a deep breath,{wa 0.75} you step closer,{wa 0.75} your voice softening as you speak."
+
+MC as You "I’m sorry, I didn’t mean to go off on you like that. I was just. . .{wa 0.75}really worried."
+
+MC as You "When you sent that text, I t-thought something <i>bad</i> {wa 0.75}had happened to you. {wa 0.75}I didn’t know what to think."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_sad -l 1 -spd 0.75)
+
+narrator "For a moment, {wa 0.75}you are reminded of the Oliver you used to know—{wa 0.75}the one who gets flustered when you tease him, {wa 0.75}the one who listens when you vent about your problems."
+
+narrator "It’s a side of him that few people ever get to see, and it makes your heart ache in a way you can’t quite explain."
+
+Oliver "I didn’t mean to scare you. I just. . .{wa 0.75}panicked."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "His words hit you like a punch to the gut. <i>Despite</i> everything—<i>despite</i> the years of silence and the awkwardness of your reunion—Oliver <i>still</i> turns to you when he needs help."
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+narrator "The realization makes your chest swell with a strange mix of pride and warmth, and you can’t help but smile."
+
+MC as You "It’s okay. {wa 0.75}I’m just glad you’re alright.{wa 0.75} And I’m sure this little guy is grateful to you for saving him."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_shy -l 1 -spd 0.75)
+
+narrator "Oliver’s cheeks flush at your words, {wa 0.75}and he looks away, {wa 0.75}clearly embarrassed."
+
+narrator "It’s such a small, {wa 0.75}subtle reaction, {wa 0.75}but it makes your heart skip a beat. {wa 0.75}You’d forgotten how endearing he can be when he lets his guard down, even just a little."
+
+Oliver "Yeah, well. . .{wa 0.75}I couldn’t just leave him there."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+narrator "You smile, feeling the tension between you dissipate."
+
+MC as You "So, {wa 0.75}what are you going to do with him?"
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+Oliver "I was actually. . .{wa 0.75}hoping that you would take him in? I can't take him home, {wa 0.75}my sister is allergic to cats."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+MC as You "Sorry, no can do. {wa 0.75}My folks would kill me if I bring home a cat."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_ch -l 1 -spd 0.75)
+
+narrator "Oliver hums, his brow furrowing in thought."
+
+Oliver "Hm. . .{wa 0.75}Zoe likes cats. {wa 0.75}Maybe she can take care of him for a while."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "At the mention of Zoe’s name, your smile falters. {wa 0.75}That heavy, {wa 0.75}sinking feeling in your stomach returns, and you quickly look away, {wa 0.75}hoping Oliver won’t notice the change in your expression."
+
+MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+MC as You "Oh. Yeah, that’s...{wa 0.75}that’s a good idea,"
+
+narrator "You reply with a smile, a fake one that you barely muster up."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "Oliver nods, seemingly oblivious to your internal turmoil."
+
+Oliver "Yeah. I’ll text her later and see if she can help."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "You nod, your fake smile still plastered on your face."
+
+MC as You "Cool. {wa 0.75}I’m sure she’ll be happy to."
+
+narrator "The two of you stand there for a moment, {wa 0.75}the silence stretching between you. {wa 0.75}You try to focus on the cat, on the way it nuzzles into Oliver’s chest, {wa 0.75}but your mind keeps drifting back to Zoe."
+
+narrator "Why does the thought of her taking care of the cat—of <i>her</i> being the one Oliver turns to—<i>bother you so much?"
+
+narrator "The heavy pit in your stomach, {wa 0.75}the way your chest tightens whenever Zoe is mentioned, {wa 0.75}the way you can’t stand the thought of her being close to Oliver..."
+
+narrator "It isn’t just annoyance or discomfort."
+
+narrator "It’s <i><b>jealousy.</b></i>"
+
+MC.SetSprite(mc_panic -l 1 -spd 0.75)
+
+narrator "The realization hits you like a ton of bricks, {wa 0.75}and you freeze, {wa 0.75}your eyes widening. {wa 0.75}<i><b>Jealousy?</b></i> Over <i>Oliver?</i> No, {wa 0.75}that can’t be it. {wa 0.75}Could it?"
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "You glance at Oliver, who is still gently stroking the cat’s fur, his expression soft and focused."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_flustered -l 1 -spd 0.75)
+
+narrator "Your heart skips a beat, {wa 0.75}and you quickly look away, {wa 0.75}your cheeks burning."
+
+narrator "Oh no. {wa 0.75}This is <i>bad.</i> This is <i>very bad.</i>"
+
+StopSong(calm3_bg)
+HideUI(-spd 0.5)
+

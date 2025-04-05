@@ -1,0 +1,325 @@
+PlaySong("sad_bg4" -loop true)
+PlayAmbience(cafeteria_bg -v 0.2)
+SetLayerMedia(background canteen_bg -blend diagonal -spd 0.5)
+
+narrator "The university canteen buzzes with the chatter of students, the clatter of trays, and the occasional burst of laughter."
+
+CreateCharacter(MC)
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_tired -l 1 -spd 0.75)
+
+narrator "You pick at your food as you try to organize your thoughts. {wa 0.75}The workload from your classes is already piling up, {wa 0.75}and you haven’t even started on most of it."
+
+PlayVoice(female_sighs2_sfx -p 0.9)
+
+narrator "The stress is beginning to weigh on you, but you aren’t ready to admit it—not out loud, at least."
+
+Hide(MC)
+
+CreateCharacter(Oliver)
+
+narrator "Oliver sits across from you, his presence both comforting and unnerving. {wa 0.75}He insists on having lunch together after your first Tomodachi Program session, and you can’t bring yourself to say no."
+
+narrator "He eats quietly, his focus on his food, but you can tell he’s observing you. Oliver has always been perceptive, and you have a feeling he can tell something is off."
+
+Oliver "So, how are your classes going?"
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "You hesitate, poking at a piece of broccoli with your fork."
+
+MC as You "They’re. . .{wa 0.75}good. {wa 0.75}A lot of work, though. {wa 0.75}I haven’t really started on most of it yet."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_angry -l 1 -spd 0.75)
+
+narrator "Oliver’s eyes narrow. {wa 0.75}You know that look. {wa 0.75}It’s the same look he used to give you back in the day when you’d procrastinate on assignments or skip study sessions."
+
+narrator "It isn’t anger—{wa 0.75}it’s <i>disappointment</i>, and somehow, that’s worse."
+
+Oliver "You haven’t started? {wa 0.75}You know how this goes.{wa 0.75} If you don’t stay on top of things, it’s only going to get harder."
+
+narrator "He asks, his voice low and calm but laced with a sharp edge. {wa 0.75}You shrink in your seat, feeling like a scolded child."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+PlayVoice(female_sighs2_sfx -p 0.9)
+
+MC as You "I know, {wa 0.85}I know.{wa 0.85} I just. . .{wa 0.5}I don’t know where to start. {wa 0.75}It’s overwhelming."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+PlayVoice(female_sighs_sfx -p 0.8)
+
+narrator "Oliver sighs, his expression softening slightly."
+
+Oliver "I get that. {wa 0.75}But you can’t let it paralyze you. Break it down into smaller tasks. Start with one thing, {wa 0.75}and then move on to the next. {wa 0.75}You’ve done it before."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "You nod, avoiding his gaze."
+
+MC as You "Yeah, you’re right. {wa 0.75}I’ll try."
+
+Hide(MC)
+
+StopSong("sad_bg4")
+PlaySong("timeforrest_bg" -loop true)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "He leans back in his chair, {wa 0.75}studying you for a moment before a small, {wa 0.75}somber smile tugs at his lips."
+
+Oliver "I know sometimes it’s intimidating for you to start things on your own."
+
+Oliver "But you’re not alone anymore. {wa 0.75}<i><b>You have me.</b><i>"
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_flustered -l 1 -spd 0.75)
+
+narrator "Your heart skips a beat, {wa 0.75}and you feel your cheeks flush. {wa 0.75}You quickly avert your eyes, focusing on your plate."
+
+MC as You "T-Thanks. . .{wa 0.75}Oliver."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_curious -l 1 -spd 0.75)
+
+narrator "Oliver tilts his head, his brow furrowing slightly as he watches you."
+
+Oliver "Are you okay?"
+
+Hide(Oliver)
+
+playsfx(running_sfx -v 3 -loop true)  
+
+narrator "Before you can respond, loud footsteps cuts through the noise of the canteen."
+
+CreateCharacter(Zoe)
+
+narrator "You turn just in time to see a girl sprinting toward your table, {wa 0.75}her long hair flying behind her. {wa 0.75}She skids to a stop beside Oliver and immediately clings to his arm."
+
+stopsfx(running_sfx)  
+
+Zoe "Oliver! {wa 0.75}Fancy seeing you here! {wa 0.75}"
+
+Hide(Zoe)
+
+Oliver.Show()
+
+narrator "Oliver blinks, {wa 0.75}clearly surprised, {wa 0.75}but he doesn’t pull away."
+
+Oliver "Zoe?{wa 0.75} What are you doing here?"
+
+Hide(Oliver)
+
+Zoe.Show()
+
+narrator "Zoe—{wa 0.75}apparently her name—{wa 0.75}grins and plops down in the seat next to Oliver, still holding onto his arm."
+
+Zoe "I was in the area and thought I’d grab lunch. {wa 0.75}Imagine my surprise when I saw you sitting here!"
+
+narrator "She turns to you, her smile widening."
+
+Zoe "Hi! {wa 0.75}I’m Zoe. {wa 0.75}Oliver’s friend. {wa 0.75}And you are. . .?"
+
+Hide(Zoe)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_panic -l 1 -spd 0.75)
+
+narrator "You stammer, caught off guard by her energy."
+
+MC as You "Uh, hi. {wa 0.75}I’m. . .{wa 0.75}well, {wa 0.75}I’m Oliver’s. . .{wa 0.75}uh. . .{wa 0.75}"
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_shy -l 1 -spd 0.75)
+
+narrator "Oliver interjects smoothly, though you notice a pink tinge on his cheeks."
+
+Oliver "They’re my mentee in the Tomodachi Program. I've mentioned about them before to you."
+
+Hide(Oliver)
+
+Zoe.Show()
+PlayVoice(female_hm_sfx7)
+
+narrator "Zoe's eyes lights up. {wa 0.75}She hums, as if she was about to prod further about Oliver's peculiar expression, but she drops it."
+
+Zoe "Oh, that’s so cool!{wa 0.75} I’m in the same course as Oliver. {wa 0.75}We’ve been study buddies forever. {wa 0.75}Right, Oli?"
+
+Hide(Zoe)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "She nudges him playfully, leaning forward with interest. {wa 0.75}Oliver chuckles, shaking his head."
+
+Oliver "Yeah, something like that."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_curious -l 1 -spd 0.75)
+
+narrator "As the three of you chat, {wa 0.75}you can’t help but notice how close Zoe is to Oliver."
+
+Hide(MC)
+
+Zoe.Show()
+PlayVoice(female_laughing_sfx)
+
+narrator "She touches his shoulder when she laughs, {wa 0.75}her hand brushes his when she reaches for her drink, {wa 0.75}and she leans into him like it’s the most natural thing in the world."
+
+Hide(Zoe)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "And Oliver. . .{wa 0.75}he doesn’t seem to mind? {wa 0.75}He lets it all happen, {wa 0.75}his expression relaxed and unbothered."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "A heavy pit begins to form in your stomach as you watch them. Are they. . .{wa 0.75}<i>together?</i>"
+
+narrator "The thought makes your chest tighten, though you aren’t sure why."
+
+narrator "There was a time you knew Oliver, but that was a long time ago. {wa 0.75}And yet the idea of him being with someone else—{wa 0.75}someone as vibrant and pretty as Zoe—makes you feel. . .{wa 0.75}<i>off.</i>"
+
+Hide(MC)
+
+Zoe.Show()
+
+narrator "Eventually, Zoe glances at her phone."
+
+Zoe.Animate(Hop)
+PlayVoice(female_gasp)
+
+Zoe "Oh, shoot! {wa 0.75}I’ve got to run. {wa 0.75}It was so nice meeting you!"
+
+narrator "She stands up and gives you a warm, knowing smile. {wa 0.75}She turns to Oliver and ruffles his hair."
+
+Zoe "See you later, Oliver!"
+
+Hide(Zoe)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "Oliver swats her hand away, but there’s no real annoyance in his expression."
+
+Oliver "Yeah, {wa 0.75}see you."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "As Zoe leaves, {wa 0.75}you stare after her, {wa 0.75}your mind racing. The pit in your stomach only seems to grow heavier, {wa 0.75}and you can’t shake the feeling of unease."
+
+narrator "Finally, {wa 0.75}you turn to Oliver, {wa 0.75}unable to hold back your curiosity any longer."
+
+MC as You "So. . .{wa 0.75}are you and Zoe, {wa 0.75}like, an item or something?"
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_curious -l 1 -spd 0.75)
+
+narrator "Oliver raises an eyebrow, {wa 0.75}his expression unreadable."
+
+Oliver "No, we’re just friends. {wa 0.75}Nothing else."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "You blink, caught off guard by his straightforward answer."
+
+MC as You "O-Oh.{wa 0.75} Oh. {wa 0.75}Okay."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_curious -l 1 -spd 0.75)
+
+narrator "He tilts his head, studying you."
+
+Oliver "Why do you ask?"
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_flustered -l 1 -spd 0.75)
+
+narrator "You shrug, trying to play it cool."
+
+MC as You "N-No reason. {wa 0.75}Just curious."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "Oliver’s lips twitch into a small smile, and he shakes his head."
+
+Oliver "You’re such a weirdo."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+PlayVoice(female_laughing_sfx2 -p 0.9)
+
+narrator "You laugh, {wa 0.75}the tension in your chest easing as the heavy pit in your stomach begins to dissolve."
+
+stopsfx(female_laughing_sfx2 -p 0.9)
+
+MC as You "Says the guy who just got his hair ruffled like a kid."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "Oliver rolls his eyes, but there’s a hint of amusement in his expression."
+
+Oliver "Shut up."
+
+Hide(Oliver)
+
+narrator "As the two of you continue to banter, you can’t help but feel a sense of relief."
+
+narrator "Whatever you are feeling earlier, it doesn’t matter.{wa 0.75} Oliver and Zoe are just friends."
+
+narrator "And for some reason, {wa 0.75}that knowledge makes your heart feel a little lighter."
+
+StopAmbience(canteen_bg)
+StopMusic("timeforrest_bg")
+HideUI(-spd 0.5)
+

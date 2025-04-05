@@ -85,3 +85,12 @@ MonoBehaviour:
     dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
     nameFontSize: 0
     dialogueFontSize: 0
+  - name: Zoe
+    alias: 
+    characterType: 1
+    nameColor: {r: 0.972549, g: 0.92156863, b: 0.9254902, a: 1}
+    dialogueColor: {r: 0.972549, g: 0.92156863, b: 0.9254902, a: 1}
+    nameFont: {fileID: 11400000, guid: 3cf59813c3f9e574faf0bb482505a28f, type: 2}
+    dialogueFont: {fileID: 11400000, guid: ffa5a4cc46a31cf41b8c4ae60b57f04f, type: 2}
+    nameFontSize: 0
+    dialogueFontSize: 0

@@ -1,0 +1,390 @@
+PlaySong("calm_bg" -loop true)  
+PlayAmbience(Traffic -v 0.1)  
+
+SetLayerMedia(background gate_bg -blend diagonal -spd 0.5)  
+
+wait(1)  
+
+narrator "The morning air is crisp, carrying the faint scent of damp pavement. The campus gates loom ahead, familiar yet intimidating."  
+
+narrator "The faint hum of distant chatter and the occasional honk of a car fill the air, but it all feels muffled, as if you’re standing at the edge of a dream."  
+
+CreateCharacter(MC)  
+
+narrator "You stand at the gates, your chest tightening as you gaze at the familiar sight."  
+
+SetLayerMedia(background admin_bg)  
+
+PlayAmbience(University -v 5 -loop true)  
+playsfx(walking_sfx -loop true)  
+narrator "It has been years since you last set foot here, and the familiar yet foreign atmosphere makes your stomach churn with a mix of excitement and anxiety."  
+[wait]  
+stopsfx(walking_sfx)  
+narrator "That building over there is where you aced your first-ever quiz, despite not studying the day before. {wa 0.75} And that spot by the bleachers—that's where you used to hang out after class, laughing with friends as the sun dipped below the horizon."  
+
+narrator "Then a particular memory stands out. {wa 0.75}Well, {wa 0.75}more specifically <i>someone</i>. You wonder if <b>he’s</b> still here, still walking the same campus that you are currently in."  
+
+playsfx(phone_alarm_sfx -loop true)  
+
+narrator "Then suddenly, the sound of an alarm from your phone snaps you out of your thoughts. {wa 0.75}You fumble to pull it out of your pocket, the screen lighting up with the time."  
+
+PlayVoice(female_gasp3 -p 0.9)  
+
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_panic -l 1)  
+MC.Animate(Hop)  
+
+MC as You "Wait... is that the time?!"  
+
+wait(1)  
+
+stopsfx(phone_alarm_sfx)  
+
+MC.Animate(WalkAway)  
+
+playsfx(running_sfx -v 3 -loop true)  
+
+Hide(MC)  
+
+StopAmbience()  
+
+narrator "Panic surges through you as you realize you’re about to be late for your first class. You turn off the alarm and take off in a sprint, your bag bouncing against your side. The world blurs around you as you dodge clusters of students, your heart pounding louder than your shoes hitting the pavement."  
+
+narrator "‎‎ "  
+
+StopAmbience()  
+playsfx(clock_sfx -v 0.2 -loop true)  
+
+Hide(MC)
+
+ClearLayerMedia(background -blend radialClock -spd 0.75), wait(3)  
+
+stopsfx(running_sfx)  
+
+SetLayerMedia(background hallway_bg -blend radialClock -spd 0.75), wait(3)  
+
+stopsfx(clock_sfx)  
+
+PlayAmbience(University -v 0.1 -loop true)  
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_tired -l 1 -spd 0.75)
+
+playsfx(stomach-growl_sfx -v 2 -loop true)
+
+narrator "A few hours has passed, {wa 0.75}and the day was a blur of lectures and introductions. By the time the last class ends, your mind feels like a mess of snippets of conversations, half-remembered instructions, and the lingering echo of the professor’s voice."
+
+PlayVoice(female_sighs2_sfx -p 0.9)
+
+narrator "A heavy fatigue settles over you as you step out of the classroom. The hallway is a river of students, all flowing in different directions."  
+
+stopsfx(stomach-growl_sfx)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_panic -l 1 -spd 0.75)
+
+narrator "Then you remembered something important. {wa 0.75}You need to visit the counselor’s office to inquire about the <i>Tomodachi Program</i>—{wa 0.75}a mentorship initiative designed to help returning students adjust to campus life."  
+
+Hide(MC)
+
+SetLayerMedia(background elevator_bg -blend diagonal -spd 0.75)  
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+narrator "As you approach the elevator, you press the button and wait, scrolling absently through your phone."  
+
+playsfx(walking_sfx -loop true)
+
+PlayAmbience(library_amb -v 0.1 -loop true)  
+
+narrator "You hear footsteps, and then someone settles somewhere over your right, but you pay them no mind and focus on your phone. Then, the doors slide open with a soft ding, and you freeze mid-step."  
+
+stopsfx(walking_sfx)
+
+StopSong("calm_bg")  
+
+narrator "There he is, {wa 0.75}about to enter the very same elevator you’re about to enter as well."  
+
+CreateCharacter(Oliver)
+
+narrator "<i><b>Oliver.</b></i>"  
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_panic -l 1 -spd 0.75)
+PlayVoice(female_gasp3 -p 0.9)
+
+narrator "Your breath hitches as your eyes meet his. {wa 0.75}He looks the same, yet different."  
+
+Hide(MC)
+
+Oliver.Show()
+
+narrator "His once-boyish features have sharpened with time, {wa 0.75}his jawline more defined, {wa 0.75}his shoulders broader. {wa 0.75}His blonde hair is still as unruly as ever, though now it seems intentionally styled to look that way."
+
+narrator "He is taller,{wa 0.75} towering over you in a way that makes you feel inexplicably small."  
+
+narrator "For a moment, {wa 0.75}neither of you moves. {wa 0.75}The air between you feels charged, heavy with unspoken words and memories. Then, as if on cue, {wa 0.75}you both step into the elevator at the same time, the doors closing behind you with a soft whoosh."  
+
+SetLayerMedia(background elevator2_bg -blend diagonal)  
+
+narrator "The elevator is crowded, and the two of you are pressed side by side, {wa 0.75}your arms brushing against each other with every slight movement."  
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_flustered -l 1 -spd 0.75)
+
+narrator "You can feel the warmth of his body, the faint scent of his cologne—{wa 0.75}something woodsy and warm—{wa 0.75}filling your senses. Your heart races,{wa 0.75} but neither of you speaks."  
+
+narrator "The silence is deafening, {wa 0.75}broken only by the soft hum of the elevator as it ascends."  
+
+Hide(MC)
+
+Oliver.Show()
+
+narrator "You steal a glance at him from the corner of your eye. {wa 0.75}His expression is unreadable, his gaze fixed on the numbers above the door as they light up one by one."  
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "You open your mouth to say something—{wa 0.75}anything—{wa 0.75}but the words catch in your throat."  
+
+narrator "What do you even say to someone you haven’t seen in years? {wa 0.75}Someone who used to be your <i>closest</i> friend, {wa 0.75}but now feels like a stranger?"  
+
+narrator "The elevator comes to a stop, and the doors open. You both step out, still side by side,{wa 0.75} still silent."
+
+SetLayerMedia(background hallway_bg -blend diagonal -spd 0.75)
+
+narrator "The hallway stretches out before you, and you realize with a start that you are both heading in the same direction. {wa 0.75}You can’t help but laugh nervously, the sound breaking the tension."  
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+MC as You "Haha, {wa 0.75}crazy how we’re going to the same place, huh?"  
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "Oliver glances at you, his expression softening for just a moment before he nods."  
+
+Oliver "Yeah. {wa 0.75}<i>Crazy</i>."  
+
+playsfx(walking_sfx -loop true)
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "The awkwardness lingers as you continue walking, your footsteps echoing in unison. Finally, {wa 0.75}you reach the counselor’s office. Oliver reaches out and opens the door for you, his movements smooth and practiced."  
+
+stopsfx(walking_sfx)
+
+Hide(MC)
+
+playsfx(door-opening_sfx)
+
+enter Oliver "After you."  
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+narrator "You can’t resist teasing him, just like old times."  
+
+MC as You "Always the gentleman, <i>Oli.</i>"  
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_shy -l 1 -spd 0.75)
+
+narrator "You step inside, missing the way his cheeks flush at the familiar term."  
+
+Hide(Oliver)
+
+SetLayerMedia(background counselor_bg -blend diagonal -spd 0.75)  
+
+PlayAmbience(office_bg)
+
+CreateCharacter(Counselor)
+
+narrator "The counselor, {wa 0.75}an older woman with kind eyes and a warm smile, {wa 0.75}greets you both. She seems to know Oliver well, {wa 0.75}her tone friendly and familiar as she chats with him. You stand there, {wa 0.75}feeling slightly out of place, as she turns her attention to you."  
+
+Hide(Counselor)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "After explaining your situation—{wa 0.75}how you are a returning student interested in joining the Tomodachi Program—{wa 0.75}the counselor’s eyes light up with excitement. She glances between you and Oliver, {wa 0.75}a mischievous smile playing on her lips."  
+
+Hide(MC)
+
+PlayVoice(female_hm_sfx3)
+
+enter Counselor "Well, isn’t this perfect? {wa 0.75}Oliver here is one of our returning mentors for the program. {wa 0.75}And since you two already know each other, {wa 0.75}why don’t we pair you up?"  
+
+Hide(Counselor)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "You blink, caught off guard."  
+
+MC as You "Wait, <i><b>what?</b></i>"  
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_ch -l 1 -spd 0.75)
+
+narrator "Oliver doesn't seem to mind though, you, however are the opposite. {wa 0.75}But before you can protest, {wa 0.75}the counselor is already filling out the paperwork, her enthusiasm unwavering."  
+
+Hide(Oliver)
+
+PlayVoice(female_hm_sfx8)
+
+enter Counselor "This is such a wonderful opportunity! I’m sure both of you will work well."  
+
+Hide(Counselor)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_tired -l 1 -spd 0.75)
+
+narrator "And just like that, {wa 0.75}it was decided. {wa 0.75}You and Oliver are officially paired up for the program."  
+
+Hide(MC)
+
+StopAmbience(office_bg)  
+
+PlaySong("calm_bg" -loop true)  
+
+SetLayerMedia(background hallway_bg -blend diagonal)  
+
+playsfx(walking_sfx -loop true)
+
+narrator "As the two of you leave the office, the reality of the situation begins to sink in. {wa 0.75}You walk side by side down the hallway, both dazed and silent."
+
+stopsfx(walking_sfx)
+
+PlayVoice(female_laughing_sfx2 -p 0.9)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+narrator "Then, {wa 0.75}out of nowhere, {wa 0.75}you burst out laughing. {wa 0.75}The sound echoes through the empty corridor, loud and uncontained."  
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+PlayVoice(male_chuckle_sfx3)
+
+narrator "Oliver looks at you, startled at first, but then a small smile tugs at the corners of his lips. {wa 0.75}He chuckles softly, the sound warm and familiar. His cheeks tinge with a light blush as he shakes his head."  
+
+Hide(Oliver)
+
+PlayVoice(female_sighs2_sfx)
+
+enter MC as You "<i>Man</i>, {wa 0.75}that was something, huh,{wa 0.75} Oli?"  
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "Oliver’s gaze lingers on you, his smile softening."  
+
+Oliver ". . .{wa 0.75}Yeah."  
+
+narrator "You notice the way he is looking at you, {wa 0.75}his eyes filled with something you can’t quite place."  
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_curious -l 1 -spd 0.75)
+
+MC as You "Why are you staring at me like that?{wa 0.75} Is there something on my face?"  
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+playsfx(male_chuckle_sfx4)
+
+narrator "He chuckles, shaking his head."  
+
+Oliver "Nothing. {wa 0.75}Just noticed that after all these years, {wa 0.75}you’ve never changed."  
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_curious -l 1 -spd 0.75)
+
+narrator "The words catch you off guard, and for a moment, {wa 0.75}you don’t know how to respond. Oliver’s gaze lingers on you, his expression softer than you’ve seen in years. {wa 0.75}The hallway feels quieter now, as if the world has narrowed to just the two of you."  
+
+MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+narrator "You open your mouth to say something, but the words stick in your throat. {wa 0.75}Instead, you smile, {wa 0.75}a small, {wa 0.75}uncertain thing, and Oliver mirrors it with one of his own."  
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+narrator "He shifts his weight, his hands slipping into his pockets as he glances down the hallway."
+
+Oliver.SetSprite(oliver_ch -l 1 -spd 0.75)
+
+narrator "For a moment, it seems like he might say something more, but instead, {wa 0.75}he simply nods, his voice quiet but steady."  
+
+Oliver.SetSprite(oliver_shy -l 1 -spd 0.75)
+
+Oliver "I’ll see you tomorrow, then."  
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_flustered -l 1 -spd 0.75)
+
+narrator "You blink, {wa 0.75}surprised by the warmth in his tone. {wa 0.75}It isn’t much, but it is enough to make your heart flutter. {wa 0.75}You nod, trying to play it cool."  
+
+MC as You "Y-yeah. {wa 0.75}Tomorrow."  
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_ch -l 1 -spd 0.75)
+
+narrator "Oliver hesitates for a moment, as if he wants to say something else, but then he turns and starts walking down the hallway."  
+
+playsfx(walking_sfx -loop true)
+
+Oliver.Animate(WalkAway)
+
+stopsfx(walking_sfx)
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+narrator "As his figure disappears around the corner, you can’t help but wonder: {wa 0.75}has he really changed as much as you thought? {wa 0.75}Or is there still a part of him that remembers the bond you once shared?"  
+
+narrator "Only time will tell. {wa 0.75}But for the first time in years, you feel a spark of hope. Maybe, {wa 0.75}just maybe, {wa 0.75}this is the start of something new—{wa 0.75}or the rekindling of something old."  
+
+StopSong("calm_bg") 
+
+HideUI(-spd 0.5)  
+
+ShowUI()
+narrator "<i>End of Chapter</i>"

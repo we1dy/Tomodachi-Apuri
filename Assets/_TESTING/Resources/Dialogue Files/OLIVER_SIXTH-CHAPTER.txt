@@ -1,0 +1,228 @@
+PlaySong("sad_bg3" -loop true)
+SetLayerMedia(background hpsb_bg -blend diagonal -spd 0.5)
+
+wait(1)
+
+CreateCharacter(MC)
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_angry -l 1 -spd 0.75)
+wait(1)
+MC.Animate(WalkAway)
+
+Hide(MC)
+
+narrator "The HPSB Building is one of the tallest on campus, and there’s a long line by the elevators,{wa 0.75} so stairs are your only choice." 
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_tired -l 1 -spd 0.75)
+
+narrator "By the time you reach the tenth floor, {wa 0.75}your lungs burn and your legs ache."
+
+SetLayerMedia(background hallway_bg -blend diagonal -spd 0.75)
+
+narrator "The hallway is eerily quiet,{wa 0.75} save for the faint hum of the air conditioning."
+
+SetLayerMedia(background window_bg -blend diagonal -spd 0.5)
+
+CreateCharacter(Oliver)
+
+narrator "At the far end, you see him.{wa 0.75} Oliver stands there, {wa 0.75}his silhouette framed by the warm glow."
+
+Hide(Oiver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "You hesitate,{wa 0.75} your heart pounding so loudly you’re sure he can hear it. {wa 0.75}The air feels heavy, charged with unspoken words. 
+
+narrator "Taking a deep breath, {wa 0.75}you step forward, {wa 0.75}your shoes barely making a sound against the polished floor."
+
+MC as You "Oliver."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_upset -l 1 -spd 0.75)
+
+Oliver "<i><b>What do you want?</b></i>"
+
+narrator "His voice is low, guarded, {wa 0.75}and it sends a pang through your chest.{wa 0.75} It isn’t like him to sound so cold, so distant." 
+
+narrator "The Oliver you know is warm, kind—{wa 0.75}even when quiet. {wa 0.75}But seeing him like this? {wa 0.75}It hurts more than you expected."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "You stop a few feet away, clutching the strap of your bag like a lifeline." 
+
+narrator "The weight of the moment presses down on you, and you struggle to find the right words."
+
+MC as You "I. . .{wa 0.75}I need to explain. {wa 0.75}You’ve got it all wrong."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_upset -l 1 -spd 0.75)
+
+Oliver "<i><b>Do I?</b></i> {wa 0.75}Because from where I was standing, {wa 0.75}it looked pretty clear to me."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+MC as You "No, {wa 0.75}it’s not like that."
+
+MC as You "Zoe and I are just <i>friends.</i> {wa 0.75}She’s been helping me. . .{wa 0.75}figure some things out."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_angry -l 1 -spd 0.75)
+
+Oliver "Figure what out?"
+
+Hide(Oliver)
+
+PlaySong("love_bg" -loop true)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_angry -l 1 -spd 0.75)
+
+narrator "You take a deep breath, your heart racing."
+
+narrator "This is it. {wa 0.75}No more hiding. {wa 0.75}No more pretending."
+
+narrator "The words you’ve been holding back bubble to the surface, {wa 0.75}unstoppable now."
+
+narrator "Your palms are sweaty,{wa 0.75} your throat dry. {wa 0.75}Every nerve in your body burns. {wa 0.75}Your pulse thunders in your ears, a relentless drumbeat echoing through the empty hallway."
+
+narrator "The hum of the air conditioning, the golden light streaming through the windows, the way his eyes search yours—{wa 0.75}it all feels surreal, like a scene from a movie." 
+
+MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "But this isn’t a movie. {wa 0.75}This is real. {wa 0.75}And you’re about to lay your heart on the line."
+
+MC as You "Figure out how to tell you that I. . .{wa 0.75}I like you. {wa 0.75}A lot."
+
+MC as You "And I’ve been scared to say anything because I didn’t want to ruin what we have." 
+
+MC as You "You mean so much to me, {wa 0.75}Oliver. {wa 0.75}I didn’t want to lose you a second time."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_ch -l 1 -spd 0.75)
+
+narrator "Oliver stares at you with his signature stoic face. For a moment, {wa 0.75}he doesn’t speak, {wa 0.75}and you wonder if he’s even heard you."
+
+Oliver.SetSprite(shy_ch -l 1 -spd 0.75)
+
+narrator "Then, slowly, his eyes widen, {wa 0.75}his cheeks flushing deep red. He looks like he’s just been hit by a truck, {wa 0.75}his usual composure shattered."
+
+Oliver "Wait. . .{wa 0.75}what?"
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "You blink, confused by his reaction."
+
+MC as You "I. . .{wa 0.75}I like you, Oliver. {wa 0.75}I have for a while now."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_shy -l 1 -spd 0.75)
+
+Oliver "You. . .{wa 0.75}you like me? Like. . .{wa 0.75}like {wa 0.75}me?"
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+MC as You "Yes.{wa 0.75} I do."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_sad -l 1 -spd 0.75)
+
+Oliver "I. . .{wa 0.75}I had no idea. I thought you and Zoe were. . .{wa 0.75}I mean, {wa 0.75}I saw you holding hands, {wa 0.75}and I just assumed—"
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+MC as You "No, Oliver. {wa 0.75}Zoe’s just a friend. She’s been helping me sort through my feelings. {wa 0.75}For you."
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_shy -l 1 -spd 0.75)
+
+narrator "Oliver’s blush deepens. {wa 0.75}He looks away, fingers fidgeting with the hem of his vest." 
+
+narrator "The fabric crumples under his touch, and you see the tension in his shoulders, the way his jaw tightens as he struggles for words."
+
+Oliver "Oh. {wa 0.75}I. . .{wa 0.75}I didn’t know. I’m sorry for assuming."
+
+Oliver "I l-{wa 0.75}like you too...{wa 0.75}for a long time now."
+
+narrator "His voice is barely above a whisper, rough with vulnerability. {wa 0.75}The confession lingers between you, fragile as the golden light pooling at your feet."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+MC as You "I guess we’re both kind of dense, {wa 0.75}huh?"
+
+Oliver "Yeah." 
+
+Hide(MC)
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_smile -l 1 -spd 0.75)
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/OLIVER/oliver_hand")
+
+narrator "A shy smile tugs at his lips as he steps closer. {wa 0.75}His fingers skim yours—{wa 0.75}tentative, questioning—{wa 0.75}before he gently lifts your hand between you."
+
+narrator "Time slows. {wa 0.75}His thumb traces your knuckles once, {wa 0.75}twice,{wa 0.75} as if memorizing their shape." 
+
+narrator "Then he bows his head, pressing his lips to your hand in a kiss so soft it’s almost a breath."
+
+narrator "Warm. {wa 0.75}Reverent.{wa 0.75} His eyelashes flutter shut, and you feel the tremor in his grip—like he’s afraid you’ll pull away."
+
+narrator "You don’t. {wa 0.75}Instead, your free hand rises to cradle his cheek, thumb brushing the blush staining his skin." 
+
+narrator "When Oliver finally looks up, his eyes are bright with something fragile and hopeful, his lips still parted against your wrist."
+
+Oliver "...Was that okay?"
+
+MC as You "More than okay."
+
+narrator "The sunset bleeds into twilight around you, but all you see is him—"
+
+narrator "the way his shoulders sag with relief, the way his fingers tighten around yours, anchoring you both to this moment. To whatever comes next."
+
+narrator "The warmth of his face against your hand, the steadiness of his breath, it all feels like a dream. Too perfect to be real."
+
+narrator "And as Oliver’s thumb brushes your wrist once more, you realize:{wa 0.75} this isn’t an ending. {wa 0.75}It’s the first step into something brighter."
+
+HideDB(-spd 0.1)
+
+wait(1)
+
+ShowDB()
+
+ClearLayerMedia(cinematic)
+
+StopSong("love_bg")
+HideUI(-spd 0.5)

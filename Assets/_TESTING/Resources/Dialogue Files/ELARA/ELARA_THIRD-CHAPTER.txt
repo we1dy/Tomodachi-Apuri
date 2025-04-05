@@ -1,0 +1,271 @@
+HideDB()
+PlaySong("upbeat2_bg" -loop true -v 0.8)
+PlayAmbience(restaurant_amb -loop true -v 0.5)
+
+SetLayerMedia(background karinderya_bg -blend diagonal -spd 0.5)
+
+narrator "The eatery is a cozy, no-frills eatery just a short walk from campus. {wa 0.75}Tables and wooden chairs are scattered aroundg. The air is thick with the mouthwatering aroma of home-cooked meals."
+
+CreateCharacter(MC)
+
+narrator "Students and locals alike crowd the place, their lively chatter blending with the clatter of plates and the occasional burst of laughter."
+
+narrator "You’re seated at a corner table, savoring your late lunch—{wa 0.75}a hearty serving of Adobo and rice—{wa 0.75}when you spot a familiar figure walking past the entrance."
+
+Hide(MC)
+
+wait(1)
+
+CreateCharacter(Elara)
+Elara.Show()
+Elara.SetSprite(elara_body -l 0 -spd 0.75), Elara.SetSprite(elara_calm -l 1 -spd 0.75)
+
+narrator "Elara."
+
+narrator "She looks out of place amidst the casual chaos of the place, her posture as perfect as ever, her bag slung neatly over one shoulder."
+
+narrator "She pauses, glancing at the menu board with a slight frown, as if unsure whether to enter. You wave her over before you can think better of it."
+
+Hide(Elara)
+
+MC.Show()
+MC.Animate(Hop)
+MC as You "Elara! Over here!"
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_body -l 0), Elara.SetSprite(elara_surprised -l 1)
+
+narrator "She freezes, her expression shifting from thoughtful to mildly horrified as she realizes it’s you. For a moment, it looks like she might pretend she didn’t hear you and keep walking."
+
+Elara.SetSprite(elara_ch -l 1 -spd 0.75)
+
+PlayVoice(female_sighs2_sfx5 -v 10)
+
+narrator "But then she sighs and makes her way over to your table, her polished shoes clicking softly against the floor."
+
+Elara "What are you doing here?"
+
+Hide(Elara)
+
+enter MC as You "Eating. {wa 0.75}What about you? {wa 0.75}Don’t tell me you’ve never been here before."
+
+Hide(MC)
+
+enter Elara "I was on my way home. I just. . .{wa 0.75}stopped to check the menu."
+
+Hide(Elara)
+
+enter MC as You "Uh-huh. Sure. Well, {wa 0.75}since you’re here, sit down. I’ll treat you."
+
+Hide(MC)
+
+Elara.Show()
+
+narrator "She hesitates, glancing around at the bustling eatery like it’s a foreign country. You can practically see her weighing the pros and cons of sitting with you versus braving the chaos alone."
+
+narrator "Finally, she sits down—albeit as far from you as the small table allows—and places her bag neatly on her lap."
+
+Elara "I’m not staying long."
+
+Hide(Elara)
+
+enter MC as You "Sure, sure. Just long enough to eat. What do you want?{wa 0.75} Their Adobo’s amazing,{wa 0.75}but the Sinigang’s pretty good too."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_body -l 0 -spd 0.75), Elara.SetSprite(elara_calm -l 1 -spd 0.75)
+
+narrator "She eyes the menu board again, her frown deepening. But then she straightens, {wa 0.75}her usual composure returning."
+
+Elara.SetSprite(elara_ch -l 1 -spd 0.75)
+
+Elara "I don’t know. {wa 0.75}I’ve never eaten here before."
+
+Hide(Elara)
+
+MC.Show()
+MC.SetSprite(mc_curious -l 1)
+MC as You "What? {wa 0.75}<i>Never?</i> This place is pretty popular since it's near campus."
+
+Hide(MC)
+
+enter Elara "I usually eat at home."
+
+Hide(Elara)
+
+MC.Show()
+
+narrator "You stare at her, incredulous. {wa 0.75}"
+
+MC.SetSprite(mc_ch -l 1 -spd 0.75)
+
+MC as You "You’re missing out. Here, {wa 0.75}I’ll order for you. {wa 0.75}Trust me."
+
+Hide(MC)
+
+narrator "Before she can protest, you flag down one of the servers and order another plate of Adobo and rice, plus a bottle of soda. Elara looks like she wants to argue, but she stays quiet, her hands folded neatly on the table."
+
+narrator "For the next few minutes, you make small talk—or rather, you talk,{wa 0.75} and Elara responds with one-word answers. {wa 0.75}But you’re determined to break through her walls, even if it’s just for today."
+
+narrator "You tell her about your classes, the latest campus gossip, and the time you accidentally set off the fire alarm in the chemistry lab. She listens, her expression neutral, but you notice her glancing at the other customers with curiosity."
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/ELARA/adobo")
+
+narrator "When the food arrives, she eyes her plate like it’s an experiment, poking at the meat with her fork before taking a cautious bite."
+
+narrator "Her eyes widen slightly, and she quickly schools her expression, but you catch the flicker of surprise. It’s a small victory, but it feels significant."
+
+ClearLayerMedia(cinematic)
+
+enter MC as You "Good, right?"
+
+Hide(MC)
+
+PlayVoice(female_hm_sfx)
+enter Elara "It’s. . .{wa 0.75}acceptable."
+
+Hide(Elara)
+
+enter MC as You "Acceptable? {wa 0.75}That’s high praise coming from you."
+
+Hide(MC)
+
+narrator "She ignores your teasing, focusing on her food, {wa 0.75}but you notice her eating faster than usual. You grin, taking it as a win. The Adobo is tender and flavorful, the rice perfectly steamed, and even Elara seems to appreciate it, though she’d never admit it outright."
+
+PlayVoice(men_laughing_sfx)
+
+narrator "As you’re finishing your meal, a commotion breaks out just outside the eatery. A group of students is laughing loudly, and one of them is trying to balance a spoon on his nose."
+
+narrator "He fails spectacularly, the spoon clattering to the ground, and his friends erupt into even louder laughter."
+
+Elara.Show()
+Elara.SetSprite(elara_smiling -l 1)
+
+narrator "You can’t help but laugh too, and when you glance at Elara, you’re surprised to see her smiling. Encouraged, you decide to push your luck."
+
+Hide(Elara)
+
+enter MC as You "Bet I can do better."
+
+Hide(MC)
+
+narrator "Before she can stop you, you grab your spoon and attempt the same trick with exaggerated concentration, your eyes almost crossed and your tongue poking out."
+
+narrator "It goes about as well as you’d expect—the spoon slips off immediately, bouncing off your plate before landing on the table with a quiet clink."
+
+
+Elara.Show()
+Elara.SetSprite(elara_surprised -l 1)
+
+narrator "Elara stares at you, her expression caught between disbelief and amusement. And then, {wa 0.75}to your complete and utter shock, she <i>laughs</i>."
+
+SetLayerMedia(cinematic -m "~/Graphics/Gallery/elara_laughing")
+PlayVoice(female_laughing_sfx -v 5 -loop true)
+Elara.SetSprite(elara_laughing -l 1)
+
+StopSong("upbeat2_bg")
+PlaySong("love_bg" -v 5)
+
+Hide(Elara)
+
+narrator "It’s not a polite chuckle or a restrained smile. It’s a real laugh—{wa 0.75}soft, genuine, and completely unexpected. The sound is light, almost melodic, and it catches you off guard."
+
+narrator "Her shoulders shake slightly, and she covers her mouth with one hand, as if trying to hold it back. But it’s too late.{wa 0.75} You’ve already seen it. Her eyes crinkle at the corners, and the tension in her face melts away, replaced by something warm and unguarded."
+
+narrator "For a moment, the world seems to pause. The air feels lighter, the room brighter. And for the briefest of moments, a singular thought passes through your mind: {wa 0.75}<i>She’s really <b>pretty</b> when she smiles.</i>"
+
+narrator "It’s not just her features. It’s the way her entire demeanor changes, like a mask slipping away to reveal the person beneath. The way her laughter seems to fill the space between you, pulling you in, making you want to hear it again and again."
+
+HideDB()
+wait(1)
+
+stopsfx(female_laughing_sfx)
+ClearLayerMedia(cinematic)
+StopSong("love_bg")
+
+MC.Show()
+MC.SetSprite(mc_curious -l 1)
+MC as You "Did you just. . . {wa 0.75}laugh?"
+
+PlaySong("upbeat2_bg")
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_ch -l 1 -spd 0.75)
+
+narrator "But just as quickly as it came, the moment fades. {wa 0.75}She regains her composure, her hand dropping to her side, and the walls begin to rebuild themselves."
+
+narrator "Yet, for that fleeting second, you caught a glimpse of something real—something rare. And you can’t help but wonder if you’ll ever see it again."
+
+Elara "I don’t know what you’re talking about."
+
+Hide(Elara)
+
+MC.Show()
+MC.SetSprite(mc_ch -l 1)
+MC as You "Oh, come on. You <i>laughed</i>. {wa 0.75}I saw it."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_flustered2 -l 1)
+narrator "She adjusts her bag, avoiding your gaze, but the blush on her cheeks gives her away."
+
+Elara "You must be imagining things."
+
+Hide(Elara)
+
+enter MC as You "You do have emotions. {wa 0.75}I was starting to think you were a robot."
+
+Hide(MC)
+
+Elara.Show()
+Elara.SetSprite(elara_ch -l 1 -spd 0.5)
+narrator "Her lips twitch, like she’s fighting back another smile. But she quickly regains control, {wa 0.75}her expression smoothing into its usual seriousness."
+
+Elara "I should go. {wa 0.75}I still have things to do."
+
+narrator "She stands, slinging her bag over her shoulder, but you’re not ready to let her off the hook just yet."
+
+Hide(Elara)
+
+enter MC as You "Admit it. You had fun."
+
+Hide(MC)
+
+enter Elara "I admit nothing."
+
+narrator "But there’s a lightness in her tone that wasn’t there before. It’s not much, but it’s more than you expected."
+
+narrator "It’s a small victory, but it feels significant. For the first time, you’ve seen a crack in Elara’s perfect facade. And you can’t help but wonder what other surprises she’s hiding behind that composed exterior."
+
+Elara "Thanks for the treat, I’ll be going then."
+
+narrator "She starts to walk away, but gaining a bit of courage you ask her."
+
+Hide(Elara)
+
+enter MC as You "Same time tomorrow?"
+
+narrator "She doesn’t turn around, but you catch the slightest shake of her head, as if she’s amused despite herself."
+
+Hide(MC)
+
+enter Elara "Don’t push your luck."
+
+Elara.Animate(WalkAway)
+
+Hide(Elara)
+
+narrator "As she walks away, you notice something else—her hand briefly touching her lips, as if she’s only just realized she was smiling the whole time."
+
+narrator "Maybe, <i>just maybe</i>, you’re starting to get through to her."
+
+StopSong("upbeat2_bg")
+StopAmbience(restaurant_amb)
+
+HideUI(-spd 0.5)

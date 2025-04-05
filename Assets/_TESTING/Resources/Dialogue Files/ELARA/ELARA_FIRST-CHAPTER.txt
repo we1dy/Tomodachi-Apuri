@@ -1,0 +1,326 @@
+PlaySong("calm_bg" -loop true)
+PlayAmbience(Traffic -v 0.1)
+
+SetLayerMedia(background gate_bg -blend diagonal -spd 0.5)
+
+wait(1)
+
+narrator "The morning air is crisp, carrying the faint scent of damp pavement. The campus gates loom ahead, familiar yet intimidating. "
+
+narrator "The faint hum of distant chatter and the occasional honk of a car fill the air, but it all feels muffled, as if you’re standing at the edge of a dream."
+
+SetLayerMedia(background 1 narrator_bg)
+CreateCharacter(MC)
+ 
+narrator "You stand at the gates, your chest tightening as you gaze at the familiar sight."
+
+SetLayerMedia(background admin_bg)
+
+PlayAmbience(University -v 5 -loop true)
+playsfx(walking_sfx -loop true)
+narrator "You take your first hesitant steps towards inside the campus, feeling a sense of dread and nostalgia consuming you both at once. Then memories begin flooding your mind."
+[wait]
+stopsfx(walking_sfx)
+narrator "That building over there is where you aced your first-ever quiz, despite not studying the day before. {wa 0.75} And that spot by the bleachers—that's where you used to hang out after class, laughing with friends as the sun dipped below the horizon."
+
+narrator "The warmth of the memory fades as you blink and realize how much has changed. The faces around you are unfamiliar, and the weight of the past tugs at your heart. It’s as if the campus itself is watching, waiting to see if you still belong."
+
+playsfx(phone_alarm_sfx -loop true)
+
+narrator "The sound of an alarm from your phone snaps you out of your thoughts. {wa 0.75} You fumble to pull it out of your pocket, the screen lighting up with the time."
+
+PlayVoice(female_gasp3 -p 0.9)
+
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_panic -l 1)
+MC.Animate(Hop)
+
+MC as You "Wait... is that the time?!"
+
+wait(1)
+
+stopsfx(phone_alarm_sfx)
+
+MC.Animate(WalkAway)
+
+playsfx(running_sfx -v 3)
+
+Hide(MC)
+
+StopAmbience()
+
+SetLayerMedia(background 1 narrator_bg)
+
+narrator "Panic surges through you as you realize you’re about to be late for your first class. You turn off the alarm and take off in a sprint, your bag bouncing against your side. The world blurs around you as you dodge clusters of students, your heart pounding louder than your shoes hitting the pavement."
+
+narrator "‎‎ "
+
+StopAmbience()
+playsfx(clock_sfx -v 0.2 -loop true) 
+
+ClearLayerMedia(background -blend radialClock -spd 0.75), wait(3)
+
+stopsfx(running_sfx)
+
+SetLayerMedia(background canteen_bg -blend radialClock -spd 0.75), wait(3)
+
+stopsfx(clock_sfx)
+
+
+PlayAmbience(cafeteria_bg -v 0.5)
+
+narrator "A few hours has passed, {wa 0.75}and the day was a blur of lectures and introductions. By the time the last class ends, your mind feels like a mess of snippets of conversations, half-remembered instructions, and the lingering echo of the professor’s voice."
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_tired -l 1 -spd 0.75)
+
+playsfx(stomach-growl_sfx -v 2 -loop true)
+
+PlayVoice(female_sighs2_sfx -p 0.9)
+
+narrator "A heavy fatigue settles over you as you step out of the classroom. The hallway is a river of students, all flowing in different directions. Your stomach growls loudly, reminding you that you haven’t eaten since breakfast. The canteen is your next stop."
+
+stopsfx(stomach-growl_sfx)
+
+narrator "The line is long, and you sigh as you join the queue. The air is thick with the smell of fried food and the hum of chatter. You stare absently ahead, your mind still buzzing from the day’s events."
+
+StopSong()
+StopAmbience(cafeteria_bg)
+
+playsfx(whispering_sfx -v 15 -loop true)
+
+MC.SetSprite(mc_curious -l 1 -spd 0.75)
+narrator "Your focus is broken by the sound of loud whispering. Curious, you turn your head slightly, your eyes landing on a table near the corner, a small gathering of students surrounding it."
+
+Hide(MC)
+
+PlaySong("tense_bg" -v 0.7 -loop true)
+
+CreateCharacter(Cedric)
+
+narrator "A tall guy with a loud voice looms over a seated girl. His tone is friendly, almost teasing, but there’s an edge to it that makes your skin prickle."
+
+Hide(Cedric -spd 0.5)
+
+CreateCharacter(Elara)
+Elara.SetSprite(elara_body -l 0), Elara.SetSprite(elara_uncomfortable -l 1)
+
+narrator "The girl’s stiff posture and downturned gaze suggest she’s uncomfortable, though she’s trying to hide it."
+
+Hide(Elara -spd 0.5)
+
+PlayVoice(male_cocky_laugh_sfx)
+
+enter Cedric as ??? "Come on, Elara. It’s just one group project. You’re the smart one, we’d ace it together."
+
+Hide(Cedric -spd 0.5)
+
+Elara.Show()
+Elara.SetSprite(elara_body -l 0), Elara.SetSprite(elara_uncomfortable -l 1)
+
+narrator "The girl, Elara, fiddles with the corner of her notebook, her expression a mix of unease and polite defiance. Her voice, soft yet steady, carries across the room."
+
+Elara "I already told you, Cedric. I prefer working alone."
+
+Hide(Elara -spd 0.5)
+
+enter Cedric "Aw, don’t be so cold, Elara—"
+
+narrator "Without thinking, you step out of the line and toward the table. Your voice cuts through the noise before you can second-guess yourself."
+
+Hide(Cedric)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_angry -l 1)
+
+wait(1)
+
+MC as You "She said no."
+
+Hide(MC)
+
+Elara.Show()
+PlayVoice(female_gasp)
+Elara.SetSprite(elara_body -l 0), Elara.SetSprite(elara_surprised -l 1)
+Elara.Animate(Hop)
+
+narrator "All eyes turn to you. Elara's eyes widen, meeting yours for a brief moment. But instead of looking relieved, she frowns, her lips pressing into a tight line."
+
+Elara.SetSprite(elara_ch -l 1)
+
+wait(1)
+
+Hide(Elara)
+
+enter Cedric "And who are you supposed to be?{wa 0.75} Her bodyguard?"
+
+Hide(Cedric)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_angry -l 1)
+
+narrator "Your stomach flips, but you stand your ground, your voice quieter now."
+
+MC  "Just someone who knows how to take no for an answer."
+
+Hide(MC)
+
+Cedric.Show()
+PlayVoice(male_chuckle_sfx)
+wait(1)
+Cedric.Animate(WalkAway)
+Hide(Cedric)
+narrator "Cedric laughs but decides to back off, muttering under his breath as he saunters away. The tension in the air dissipates, but only slightly."
+
+
+Elara.Show()
+narrator "Elara stands abruptly. She shoots you a sharp glance."
+
+Elara "I didn’t ask for your help."
+
+Hide(Elara)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_concerned -l 1)
+MC as You "I-I know, but—"
+Hide(MC)
+
+PlayVoice(female_sighs_sfx2)
+enter Elara "But <i>nothing</i>. Next time,{wa 0.75} don't butt in other people's business. I can perfectly handle myself."
+
+StopSong("tense_bg)
+stopsfx(whispering_sfx)
+
+playsfx(running_sfx)
+Elara.Animate(WalkAway)
+Hide(Elara)
+narrator "Without waiting for a response, she grabs her things and walks away, leaving you rooted to the spot. The canteen seems quieter now, as if everyone is holding their breath. You feel the weight of their stares, but you can’t bring yourself to care."
+wait(1)
+stopsfx(running_sfx)
+
+PlayAmbience(cafeteria_bg -v 0.5)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0), MC.SetSprite(mc_curious -l 1)
+
+narrator "As you watch her retreating figure, you can’t decide if you feel annoyed, embarrassed, or intrigued. Maybe all three. There’s something about her—something sharp and unyielding—that makes you want to know more, even if she clearly wants nothing to do with you."
+
+Hide(MC)
+
+StopAmbience()
+
+ClearLayerMedia(background -blend diagonal) 
+
+wait(1)
+
+PlaySong("calm_bg" -loop true)
+
+SetLayerMedia(background hallway_bg -blend diagonal)
+
+narrator "After the canteen fiasco, you take a deep breath and refocus your thoughts. It's the first minor inncovenience for the day, but you shake it off."
+
+narrator "You have one last task for the day: visiting the counselor's office to inquire about the <i><b>‘Tomodachi Program.’</i></b>"
+
+narrator "The office is tucked away in a quieter wing of the campus, far from the bustle of the main halls. You hesitate at the door, your hand hovering over the handle."
+
+narrator "What if they say you’re not eligible? The thought makes your chest tighten, but with a deep breath, you push the door open."
+
+playsfx(door-opening_sfx)
+
+SetLayerMedia(background counselor_bg)
+
+PlayAmbience(office_bg)
+
+narrator "Inside, the room is warm and inviting, with potted plants in every corner and a faint aroma of lavender in the air."
+
+narrator "Behind a desk sits an older cheerful woman in her late 40s, she greets you with a cheery smile as she flips through a stack of papers."
+
+CreateCharacter(Counselor)
+
+PlayVoice(female_hm_sfx3 -p 0.9)
+
+enter Counselor "Good afternoon! You must be one of the new students. Come in, have a seat."
+
+narrator "You slide into the chair opposite her, nervously clutching your bag. The counselor’s smile is warm, but it does little to ease the knot in your stomach."
+
+Hide(Counselor -spd 0.5)
+
+MC.SetSprite(mc_nervous -l 1)
+enter MC  "Hi. I’m here to ask about the Tomodachi Program?"
+
+Hide(MC -spd 0.5)
+
+PlayVoice(female_hm_sfx8 -p 0.9)
+
+enter Counselor "Ah, wonderful! {wa 0.75}That program is designed to help students like you—newcomers, or those returning after some time away—ease back into campus life by pairing you with a mentor. Someone who’s been around a bit longer and can show you the ropes."
+
+Hide(Counselor -spd 0.5)
+
+narrator "You nod. Already knowing the basics of the program."
+
+enter MC  "Can you explain what the process is?"
+
+Hide(MC -spd 0.5)
+
+enter Counselor "Well,{wa 0.75} we match you with a mentor based on your goals and interests. We also consider personality and how well you might connect. You’ll be assigned a mentor from the second or third year who will help you adjust. They’re not just there for academics—they’re also a friend, someone to talk to."
+
+Hide(Counselor -spd 0.5)
+
+MC.Show()
+
+narrator "You nod once again, the knot in your stomach loosening slightly. It sounds promising, but you can’t shake your lingering nervousness."
+
+MC.SetSprite(mc_ch -l 1 -spd 0.75)
+enter MC  "And when would I meet my mentor?"
+
+Hide(MC -spd 0.5)
+
+enter Counselor "You’re eager, I see. Don’t worry—we’ll send you the details by tomorrow. You’ll meet them within the week, maybe even tomorrow."
+
+narrator "As she hands you a form to fill out, you feel a faint spark of hope. Maybe this program will make things a little less overwhelming."
+
+Hide(Counselor)
+
+ClearLayerMedia(background -blend diagonal), wait(1)
+
+SetLayerMedia(background hallway_bg -blend diagonal)
+
+StopAmbience(office_bg)
+
+MC.Show()
+playsfx(walking_sfx -loop true)
+MC.Animate(WalkIn)
+
+narrator "As you leave the office, the hallway is quiet, the only sound is the soft click of your shoes against the floor."  
+
+wait(1)
+
+stopsfx(walking_sfx)
+
+Hide(MC -spd 0.5)
+
+Elara.Show()
+Elara.SetSprite(elara_body -l 0), Elara.SetSprite(elara_calm -l 1)
+
+narrator "You catch a glimpse of someone further down the hall—it’s the girl from earlier, Elara, standing near the bulletin board, scanning a list of announcements with a focused expression."
+
+narrator "She looks completely different from the flustered girl in the canteen—composed, confident, untouchable. For reasons you can’t quite explain, you feel your curiosity about her deepen."
+
+narrator "There’s something about the way she carries herself, like she’s always one step ahead of everyone else."
+
+narrator "But before you can decide whether to approach or keep walking, Elara turns and strides off, her gaze fixed ahead."
+
+Elara.Animate(WalkAway)
+playsfx(walking_sfx -loop true)
+Hide(Elara), wait(1)
+stopsfx(walking_sfx)
+
+Show(MC -spd 0.01)
+
+PlayVoice(female_hm_sfx -p 0.9)
+MC as You "I wonder if I’ll ever see her again. . ."
+
+narrator "Little do you know, your paths are about to intertwine in ways you never expected."
+
+StopSong("calm_bg")
+
+HideUI(-spd 0.5)

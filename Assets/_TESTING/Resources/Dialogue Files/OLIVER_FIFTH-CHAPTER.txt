@@ -1,0 +1,264 @@
+PlaySong("upbeat2_bg" -loop true)
+PlayAmbience(restaurant_amb -v 0.2)
+SetLayerMedia(background karinderya_bg -blend diagonal -spd 0.5)
+
+narrator "After your confrontation with Zoe, something shifts. {wa 0.75}She becomes a constant in your life, someone you find yourself hanging out with even when Oliver isn’t around."
+
+narrator "She's easy to talk to, her bubbly personality a stark contrast to Oliver’s quiet demeanor, {wa 0.75}and she quickly becomes a safe space for you to vent about your tangled feelings for him." 
+
+narrator "It’s refreshing,{wa 0.75} having someone who doesn’t judge you but instead encourages you to be honest—{wa 0.75}even if you aren’t <i>quite</i> ready to take her advice."
+
+narrator "One afternoon, {wa 0.75}the two of you are at an eatery nearby campus, {wa 0.75}eating lunch."
+
+narrator "The conversation drifts to your past with Oliver, {wa 0.75}and Zoe is listening intently, {wa 0.75}her eyes wide with curiosity."
+
+CreateCharacter(Zoe)
+
+Zoe "So after stopping school, you just stopped talking to him?{wa 0.75} Like. {wa 0.75}<i>Never again??</i>"
+
+narrator "Zoe asks, {wa 0.75}her tone a mix of disbelief and fascination. {wa 0.75}Her voice is loud enough to draw a few curious glances from nearby tables, but she doesn’t seem to care." 
+
+narrator "She is fully invested in the conversation, her gaze fixed on you like she’s trying to piece together a puzzle."
+
+Hide(Zoe)
+
+CreateCharacter(MC)
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "You shrug. {wa 0.75}The memory of cutting Oliver out of your life still stings,{wa 0.75} even after all this time. 
+
+narrator "It isn’t something you like to talk about, but Zoe has a way of making you feel like you can trust her—{wa 0.75}like she won’t judge you, no matter what you say."
+
+MC as You "Well, {wa 0.75}I like his posts on his social media from time to time, {wa 0.75}<i>haha.</i>"
+
+MC.SetSprite(mc_fllustered -l 1 -spd 0.75)
+
+narrator "You try to laugh it off, but the sound comes out awkward and forced.{wa 0.75} You can feel your cheeks heating up, avoiding Zoe’s gaze."
+
+Hide(MC)
+
+Zoe.Show()
+Zoe.SetSprite(zoe_body -l 0 -spd 0.75), Zoe.SetSprite(zoe_sincere -l 1 -spd 0.75)
+
+narrator "Zoe stares at you. Her expression is a mix of exasperation and pity, like she can’t believe what she’s hearing. She leans back in her chair, crossing her arms over her chest as she studies you."
+
+Zoe "You know that doesn’t count, right?"
+
+narrator "Her tone is blunt, almost scolding,{wa 0.75} but there’s a hint of amusement in her eyes."
+
+narrator "The weight of her words presses down on you, and you feel a pang of guilt."
+
+narrator "You know she’s right—{wa 0.75}liking Oliver’s posts isn’t the same as actually talking to him, as being a part of his life." 
+
+narrator "But admitting that out loud feels like admitting you’ve made a mistake, {wa 0.75}and that’s something you aren’t ready to do."
+
+Hide(Zoe)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+MC as You ". . .{wa 0.75}I know."
+
+Hide(MC)
+
+Zoe.Show()
+Zoe.SetSprite(zoe_body -l 0 -spd 0.75), Zoe.SetSprite(zoe_sad -l 1 -spd 0.75)
+
+narrator "Zoe leans forward, her expression softening. {wa 0.75}Her tone is gentle but probing, as if she’s trying to piece together a puzzle."
+
+Zoe "Why did you cut him off like that? {wa 0.75}Oliver’s not the type to just. . .{wa 0.75}let people go. {wa 0.75}He cares about the people in his life. {wa 0.75}<i>A lot.</i>"
+
+Hide(Zoe)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+PlaySong("sad_bg" -loop true)
+
+narrator "You hesitate. {wa 0.75}The words feel heavy on your tongue, but Zoe’s earnest gaze makes it hard to keep them bottled up."
+
+MC as You "It’s. . ." 
+
+MC as You "When I stopped going to school, I felt. . .{wa 0.75}ashamed. {wa 0.75}<i>Humiliated.</i> I didn’t want him to see me like that." 
+
+MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+MC as You "I think it would be easier for both of us if I just. . .{wa 0.75}disappeared."
+
+Hide(MC)
+
+Zoe.Show()
+Zoe.SetSprite(zoe_body -l 0 -spd 0.75), Zoe.SetSprite(zoe_sad -l 1 -spd 0.75)
+
+narrator "Zoe frowns,{wa 0.75} her eyes filled with sympathy. She reaches across the table and grabs your hand,{wa 0.75} her grip firm but comforting."
+
+Zoe "Listen to me. {wa 0.75}Oliver doesn’t see you as an embarrassment. {wa 0.75}<i>He <b>never</b> has,{wa 0.75} and he <b>never will.</b></i>" 
+
+Zoe.SetSprite(zoe_ch -l 1 -spd 0.75)
+
+Zoe "He talks about you all the time, you know."
+
+Hide(Zoe)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_curious -l 1 -spd 0.75)
+
+narrator "Your mind is struggling to process what she’s saying. {wa 0.75}Oliver talks about you? {wa 0.75}<i>To her?</i>"
+
+MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "The thought sends a jolt of electricity through you, and you feel a flicker of hope, {wa 0.75}though you try to push it down."
+
+narrator "You can’t let yourself believe it—{wa 0.75}not yet. {wa 0.75}Not when the fear of rejection still looms so large."
+
+MC as You "He. . .{wa 0.75}talks about me?"
+
+Hide(MC)
+
+Zoe.Show()
+Zoe.SetSprite(zoe_body -l 0 -spd 0.75), Zoe.SetSprite(zoe_sincere -l 1 -spd 0.75)
+
+narrator "Zoe nods, her expression earnest. {wa 0.75}Her eyes are soft, {wa 0.75}filled with a sincerity that makes it impossible to doubt her words."
+
+Zoe "<i>All the time.</i> {wa 0.75}He’s always bringing up little things about you—how you used to make him laugh, how you were the only one who could get him to try new things." 
+
+Zoe "Trust me, {wa 0.75}you’re not just some random person from his past. {wa 0.75}You mean <i>a lot</i> to him."
+
+Hide(Zoe)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_nervous -l 1 -spd 0.75)
+
+narrator "You want to believe her, to let yourself hope that maybe, {wa 0.75}just <i>maybe,</i> {wa 0.75}Oliver feels the same way you do." 
+
+narrator "But the doubt in your heart is hard to shake. The fear of rejection, of ruining what you had, still looms over you like a dark cloud."
+
+MC as You "I don’t know, Zoe.{wa 0.75} It’s been so long. What if he’s moved on? {wa 0.75}What if I’m just. . .{wa 0.75}clinging to something that doesn’t exist anymore?"
+
+Hide(MC)
+
+Zoe.Show()
+Zoe.SetSprite(zoe_body -l 0 -spd 0.75), Zoe.SetSprite(zoe_sad -l 1 -spd 0.75)
+
+narrator "Zoe’s expression softens, and she reaches across the table, {wa 0.75}placing a hand on top of yours. Her touch is warm and reassuring, {wa 0.75}grounding you in the moment."
+
+Zoe "You won’t know unless you talk to him.{wa 0.75} And I’m telling you, {wa 0.75}Oliver’s not the type to just forget about someone who matter to him."
+
+Hide(Zoe)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "Her words hang in the air, heavy with meaning. {wa 0.75}You open your mouth to respond, to tell her how terrifying the idea of confessing your feelings is,{wa 0.75} but before you can say anything-"
+
+narrator "-a shadow falls over the table."
+
+MC.SetSprite(mc_panic -l 1 -spd 0.75)
+MC.Animate(Hop)
+
+narrator "You look up, and your heart drops." 
+
+Hide(MC)
+
+CreateCharacter(Oliver)
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_upset -l 1 -spd 0.75)
+
+narrator "Oliver is standing there, {wa 0.75}his tall frame looms over you, arms stiff at his sides, and his jaw tight."
+
+narrator "His eyes flick between you and Zoe, {wa 0.75}lingering on your joined hands, {wa 0.75}and something in his gaze makes your stomach twist."
+
+Oliver "So.{wa 0.75} Zoe is the one you like, huh."
+
+narrator "His voice is low and flat. {wa 0.75}But there’s a flicker of something deeper in his eyes—{wa 0.75}hurt, maybe, or disappointment."
+
+Oliver.SetSprite(oliver_sad -l 1 -spd 0.75)
+
+Oliver "I guess. . .{wa 0.75}it all makes sense now."
+
+Hide(Oliver)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+MC as You "O-Oliver? {wa 0.75}What are you talking about?"
+
+narrator "You stare at him, confused.{wa 0.75} What is he talking about? {wa 0.75}Why does he look so upset?"
+
+narrator "You glance at Zoe, who is sitting there with wide eyes, her hand still resting on yours. 
+
+MC.SetSprite(mc_panic -l 1 -spd 0.75)
+
+narrator "Then it hits you. {wa 0.75}Oliver has <i>misunderstood.</i> {wa 0.75}He thinks you and Zoe are <i>together.</i>"
+
+Hide(MC)
+
+
+Oliver.Show()
+Oliver.SetSprite(oliver_body -l 0 -spd 0.75), Oliver.SetSprite(oliver_upset -l 1 -spd 0.75)
+wait(1)
+Oliver.Animate(WalkAway)
+
+Hide(Oliver)
+
+narrator "He didn’t answer. {wa 0.75}His face darkens, and without another word, he turns and storms off, {wa 0.75}leaving you and Zoe sitting there in stunned silence."
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_panic -l 1 -spd 0.75)
+
+narrator "For a moment, you were frozen, {wa 0.75}your mind struggling to process what had just happened, panic and fear paralyzing your body."
+
+Hide(MC)
+
+Zoe.Show()
+Zoe.SetSprite(zoe_body -l 0 -spd 0.75), Zoe.SetSprite(zoe_sad -l 1 -spd 0.75)
+
+narrator "Then Zoe snaps into action. {wa 0.75}She pushes you out of your seat and shoves your bag into your hands."
+
+Zoe.SetSprite(zoe_sincere -l 1 -spd 0.75)
+
+Zoe "Go to the tenth floor of the HPSB Building.{wa 0.75} At the end of the hallway with the windows, you’ll find him sulking there. <i><b>Now go! {wa 0.75}Hurry!</b></i>"
+
+Hide(Zoe)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_concerned -l 1 -spd 0.75)
+
+narrator "You hesitate, your heart racing. {wa 0.75}The thought of confronting Oliver like this was terrifying."
+
+MC as You "But—"
+
+Hide(MC)
+
+Zoe.Show()
+Zoe.SetSprite(zoe_body -l 0 -spd 0.75), Zoe.SetSprite(zoe_sad -l 1 -spd 0.75)
+
+Zoe "This is your chance to finally be honest with him." 
+
+Zoe.SetSprite(zoe_sincere -l 1 -spd 0.75)
+
+Zoe "Don’t waste this second chance."
+
+Hide(Zoe)
+
+MC.Show()
+MC.SetSprite(mc_body -l 0 -spd 0.75), MC.SetSprite(mc_angry -l 1 -spd 0.75)
+
+narrator "Her words hit you—sudden, sharp, impossible to ignore. Then you nod, grateful for her support."
+
+playsfx(running_sfx -v 3 -loop true)   
+
+MC.Animate(WalkAway)  
+
+Hide(MC)
+
+narrator "Without another thought, you grab your bag and took off." 
+
+narrator "Your mind was a whirlwind of emotions, but{wa 0.75} one thought pushed you forward: <i><b>You have to find him.</b></i>"
+
+
+stopsfx(running_sfx)  
+StopAmbience(restaurant_amb)
+StopSong("sad_bg")
+HideUI(-spd 0.5)
